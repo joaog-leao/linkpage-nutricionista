@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Everton Ferreira | Nutricionista — Pacotes de Acompanhamento</title>
+<meta name="description" content="Acompanhamento nutricional com planos mensais, semestrais e anuais. Nutrição sem terrorismo, baseada em ciência. Clube de benefícios com parceiros em Belo Jardim.">
+<meta name="theme-color" content="#1E3D18">
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="Everton Ferreira | Nutricionista">
+<meta property="og:description" content="Acompanhamento nutricional personalizado. Nutrição sem terrorismo, baseada em ciência.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="assets/hero-everton.jpg"><!-- TODO (opcional): trocar por uma imagem 1200x630 pensada pra compartilhamento -->
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===================================================================
+   TOKENS
+   =================================================================== */
+:root{
+  --bg:#FFFFFF;
+  --bg-soft:#FAFBF8;
+
+  --green-300:#86EFAC;
+  --green-400:#4ADE80;
+  --green-500:#22C55E;
+  --green-600:#16A34A;
+  --green-700:#15803D;
+  --mint:#6EEBA8;
+
+  --ink:#10331A;
+  --ink-soft:#1F4A28;
+  --muted:#5A6B5F;
+  --muted-light:#7C8C81;
+
+  --line:#E7EDE5;
+  --line-strong:#D6E2D3;
+  --card:#FFFFFF;
+  --tint:#F1F8F2;
+  --badge-text:#137A3E;
+
+  --footer-bg:#1E3D18;
+  --footer-line:rgba(255,255,255,.13);
+
+  --r-sm:8px;
+  --r-md:12px;
+  --r-lg:16px;
+  --max-w:1180px;
+
+  --sh-sm:0 1px 2px rgba(16,51,26,.05);
+  --sh-md:0 4px 16px -6px rgba(16,51,26,.13);
+  --sh-lg:0 12px 32px -14px rgba(16,51,26,.18);
+  --sh-green:0 6px 16px -6px rgba(22,163,74,.35);
+
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 8% 18%, rgba(110,235,168,.14), transparent 24rem),
+    radial-gradient(circle at 92% 42%, rgba(34,197,94,.09), transparent 28rem),
+    linear-gradient(180deg, #ffffff 0%, #fbfefb 45%, #f5fbf5 100%);
+  background-attachment:fixed;
+  color:var(--ink-soft);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+img{ max-width:100%; display:block; }
+h1,h2,h3,h4{ font-family:'Sora',sans-serif; margin:0; color:var(--ink); letter-spacing:-.02em; }
+p{ margin:0; }
+a{ color:inherit; text-decoration:none; }
+ul{ margin:0; padding:0; list-style:none; }
+button{ font-family:inherit; }
+
+.wrap{ max-width:var(--max-w); margin:0 auto; padding:0 24px; }
+.muted{ color:var(--muted); }
+.grad{ color:var(--green-600); }
+
+/* Separadores discretos entre seções --------------------------------- */
+#metodo, #planos, #detalhes, #beneficios, #depoimentos, #faq, .final{ border-top:1px solid var(--line); }
+
+/* Manchas verdes suaves e animadas atrás de cada seção (dão "vida" ao
+   fundo sem criar blocos de cor sólida) ------------------------------ */
+section{ isolation:isolate; }
+section::before, section::after{
+  content:""; position:absolute; z-index:-1; border-radius:50%; pointer-events:none;
+  filter:blur(2px); animation:orbFloat 11s ease-in-out infinite alternate;
+}
+#metodo::before{ width:20rem; height:20rem; top:-4rem; right:-9rem; background:rgba(34,197,94,.09); }
+#metodo::after{ width:13rem; height:13rem; bottom:-3rem; left:-6rem; background:rgba(110,235,168,.12); animation-delay:-4s; }
+#planos::before{ width:22rem; height:22rem; top:10%; left:-10rem; background:rgba(110,235,168,.11); animation-delay:-2s; }
+#planos::after{ width:15rem; height:15rem; bottom:-4rem; right:-6rem; background:rgba(34,197,94,.08); animation-delay:-6s; }
+#detalhes::before{ width:19rem; height:19rem; top:-3rem; right:-8rem; background:rgba(34,197,94,.10); animation-delay:-1s; }
+#detalhes::after{ width:12rem; height:12rem; bottom:8%; left:-6rem; background:rgba(110,235,168,.10); animation-delay:-5s; }
+#beneficios::before{ width:24rem; height:24rem; top:-6rem; left:-10rem; background:rgba(34,197,94,.08); animation-delay:-3s; }
+#beneficios::after{ width:14rem; height:14rem; bottom:-3rem; right:-7rem; background:rgba(110,235,168,.11); animation-delay:-7s; }
+#depoimentos::before{ width:20rem; height:20rem; top:-4rem; right:-9rem; background:rgba(110,235,168,.10); animation-delay:-2.5s; }
+#depoimentos::after{ width:13rem; height:13rem; bottom:-2rem; left:-6rem; background:rgba(34,197,94,.08); animation-delay:-6.5s; }
+#faq::before{ width:18rem; height:18rem; top:-4rem; left:-8rem; background:rgba(110,235,168,.10); animation-delay:-3.5s; }
+#faq::after{ width:12rem; height:12rem; bottom:-2rem; right:-5rem; background:rgba(34,197,94,.08); animation-delay:-7.5s; }
+.final::before{ width:20rem; height:20rem; top:-5rem; left:-8rem; background:rgba(34,197,94,.09); animation-delay:-1.5s; }
+.final::after{ width:14rem; height:14rem; bottom:-4rem; right:-6rem; background:rgba(110,235,168,.11); animation-delay:-4.5s; }
+
+/* Tela de carregamento -------------------------------------------- */
+.loader{
+  position:fixed; inset:0; z-index:200; background:#fff;
+  display:flex; align-items:center; justify-content:center;
+  transition:opacity .5s var(--ease), visibility .5s;
+}
+.loader-mark{ width:60px; height:60px; animation:loaderPulse 1s ease-in-out infinite; }
+.loader-mark img{ width:100%; height:100%; object-fit:contain; }
+@keyframes loaderPulse{ 0%,100%{ transform:scale(.82); opacity:.55; } 50%{ transform:scale(1); opacity:1; } }
+.loader.hide{ opacity:0; visibility:hidden; pointer-events:none; }
+
+/* Barra de progresso de leitura ---------------------------------- */
+.progress{
+  position:fixed; top:0; left:0; height:3px; width:0%;
+  background:var(--green-600);
+  z-index:100; transition:width .1s linear;
+}
+
+/* ===================================================================
+   BOTÕES
+   =================================================================== */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  border:none; cursor:pointer;
+  font-weight:600; font-size:15px; letter-spacing:.01em;
+  padding:15px 30px; border-radius:var(--r-sm);
+  transition:background-color .25s var(--ease), transform .25s var(--ease-out), box-shadow .25s var(--ease-out);
+}
+.btn-primary{
+  background:var(--green-600); color:#fff; box-shadow:var(--sh-green);
+}
+.btn-primary:hover{ background:var(--green-700); transform:translateY(-1px); }
+.btn-primary:active{ transform:translateY(0); }
+.btn:focus-visible{ outline:2px solid var(--green-700); outline-offset:3px; }
+
+.btn-outline{
+  background:#fff; color:var(--ink);
+  border:1.5px solid var(--line-strong); font-weight:600; padding:13.5px 26px;
+}
+.btn-outline:hover{ border-color:var(--green-600); color:var(--green-700); }
+
+/* Botões de destaque com pulso + anel expandindo (CTAs principais) - */
+.btn-glow{
+  position:relative; isolation:isolate;
+  animation:btnBreathe 2.2s ease-in-out infinite;
+}
+.btn-glow::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  border-radius:inherit;
+  box-shadow:0 0 0 0 rgba(74,222,128,.55);
+  animation:btnRing 2.2s ease-out infinite;
+  pointer-events:none;
+}
+@keyframes btnBreathe{
+  0%,100%{ transform:scale(1); }
+  50%{ transform:scale(1.035); }
+}
+@keyframes btnRing{
+  0%{ box-shadow:0 0 0 0 rgba(74,222,128,.45); }
+  70%{ box-shadow:0 0 0 8px rgba(74,222,128,0); }
+  100%{ box-shadow:0 0 0 8px rgba(74,222,128,0); }
+}
+@media (prefers-reduced-motion: reduce){
+  .btn-glow{ animation:btnBreathe 4.4s ease-in-out infinite !important; }
+  .btn-glow::before{ animation:btnRing 4.4s ease-out infinite !important; }
+  .btn-outline.btn-glow::before{ animation:btnRingOutline 4.4s ease-out infinite !important; }
+}
+.btn-outline.btn-glow::before{ box-shadow:0 0 0 0 rgba(34,197,94,.45); animation-name:btnRingOutline; }
+@keyframes btnRingOutline{
+  0%{ box-shadow:0 0 0 0 rgba(34,197,94,.45); }
+  70%{ box-shadow:0 0 0 8px rgba(34,197,94,0); }
+  100%{ box-shadow:0 0 0 8px rgba(34,197,94,0); }
+}
+
+/* ===================================================================
+   HEADER
+   =================================================================== */
+/* Barra utilitária (topo) ----------------------------------------- */
+.topbar{ background:var(--ink); color:#D8EBDB; font-size:12.5px; }
+.topbar .wrap{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding-top:9px; padding-bottom:9px; }
+.topbar-left{ display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+.topbar-item{ display:flex; align-items:center; gap:7px; }
+.topbar-item svg{ width:14px; height:14px; stroke:var(--green-400); flex:none; }
+.topbar a:hover{ color:#fff; }
+.topbar-right{ display:flex; align-items:center; gap:14px; }
+.topbar-right a{ display:flex; align-items:center; gap:6px; }
+.topbar-right svg{ width:14px; height:14px; stroke:#D8EBDB; }
+
+header{
+  position:sticky; top:0; z-index:60; padding:12px 0; background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid transparent;
+  transition:box-shadow .3s var(--ease), border-color .3s var(--ease), padding .3s var(--ease);
+}
+header.scrolled{
+  border-bottom-color:var(--line);
+  box-shadow:0 2px 12px -8px rgba(16,51,26,.35);
+  padding:8px 0;
+}
+.nav{ display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.brand{ display:flex; align-items:center; gap:11px; }
+.brand-logo{ height:92px; width:auto; display:block; transition:height .3s var(--ease), transform .3s var(--ease); }
+  header.scrolled .brand-logo{ height:72px; }
+.brand-name{ font-family:'Sora'; font-weight:700; font-size:17.5px; color:var(--ink); line-height:1.15; display:block; }
+.brand-sub{ font-size:11px; color:var(--muted-light); font-weight:500; letter-spacing:.04em; }
+
+.nav-links{ display:flex; align-items:center; gap:30px; }
+.nav-links a[data-scroll]{
+  font-weight:600; font-size:14.5px; color:var(--ink-soft);
+  position:relative; padding:4px 0; cursor:pointer;
+}
+.nav-links a[data-scroll]::after{
+  content:""; position:absolute; left:0; bottom:0; height:2px; width:100%;
+  background:var(--green-500); border-radius:2px;
+  transform:scaleX(0); transform-origin:right;
+  transition:transform .4s var(--ease-out);
+}
+.nav-links a[data-scroll]:hover::after,
+.nav-links a[data-scroll].active::after{ transform:scaleX(1); transform-origin:left; }
+.nav-links a[data-scroll].active{ color:var(--green-700); }
+.nav-cta{ padding:12px 24px; font-size:14px; }
+
+.burger{
+  display:none; background:none; border:1.6px solid var(--line-strong);
+  border-radius:11px; padding:13px; cursor:pointer;
+}
+.burger span{ display:block; width:18px; height:2px; background:var(--ink); border-radius:2px; transition:transform .35s var(--ease), opacity .25s; }
+.burger span+span{ margin-top:4px; }
+.burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+.burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+
+.mobile-menu{
+  display:none; flex-direction:column; gap:4px;
+  background:var(--card); border:1px solid var(--line); border-radius:var(--r-md);
+  padding:12px; margin-top:12px; box-shadow:var(--sh-md);
+}
+.mobile-menu.open{ display:flex; animation:menuIn .35s var(--ease-out); }
+.mobile-menu a{ padding:12px 14px; border-radius:10px; font-weight:600; font-size:15px; }
+.mobile-menu a:active{ background:var(--tint); }
+@keyframes menuIn{ from{ opacity:0; transform:translateY(-8px); } to{ opacity:1; transform:none; } }
+
+/* ===================================================================
+   HERO
+   =================================================================== */
+.hero{ padding:56px 0 18px; position:relative; isolation:isolate; }
+.hero::before,.hero::after{
+  content:""; position:absolute; z-index:-1; border-radius:50%; pointer-events:none;
+  filter:blur(1px); opacity:.8; animation:orbFloat 9s ease-in-out infinite alternate;
+}
+.hero::before{ width:15rem; height:15rem; top:2rem; left:-8rem; background:rgba(110,235,168,.18); }
+.hero::after{ width:11rem; height:11rem; right:-5rem; bottom:1rem; background:rgba(34,197,94,.12); animation-delay:-3s; }
+@keyframes orbFloat{ from{ transform:translate3d(0,10px,0) scale(.9) rotate(0deg); } to{ transform:translate3d(46px,-38px,0) scale(1.14) rotate(8deg); }}
+.hero-grid{ display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; }
+
+.hero-pill{
+  display:inline-flex; align-items:center; gap:9px;
+  background:var(--tint); border:1px solid var(--line-strong);
+  color:var(--badge-text); font-size:13px; font-weight:600;
+  padding:8px 16px; border-radius:999px; margin-bottom:22px;
+}
+.hero-pill .dot{
+  width:7px; height:7px; border-radius:50%; background:var(--green-500);
+  box-shadow:0 0 0 0 rgba(34,197,94,.55); animation:ping 2.4s var(--ease) infinite;
+}
+@keyframes ping{ 70%{ box-shadow:0 0 0 9px rgba(34,197,94,0); } 100%{ box-shadow:0 0 0 0 rgba(34,197,94,0); } }
+
+.hero h1{ font-size:clamp(36px,5.4vw,60px); font-weight:800; line-height:1.04; }
+.hero .lead{ margin-top:22px; font-size:17.5px; color:var(--muted); max-width:47ch; }
+.hero .lead strong{ color:var(--ink); font-weight:700; }
+.hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:32px; }
+
+.trust{ display:flex; flex-wrap:wrap; gap:10px 26px; margin-top:30px; }
+.trust li{ display:flex; align-items:center; gap:8px; font-size:14px; color:var(--muted); font-weight:500; }
+.trust svg{ width:17px; height:17px; flex:none; stroke:var(--green-600); }
+
+.hero-figure{ position:relative; display:flex; justify-content:center; }
+.hero-photo{
+  width:min(100%,380px); aspect-ratio:1/1; border-radius:50%;
+  background:var(--tint);
+  display:flex; align-items:center; justify-content:center;
+  border:1px solid var(--line-strong); box-shadow:var(--sh-lg); overflow:hidden;
+  position:relative; z-index:2;
+}
+.hero-photo img{ width:100%; height:100%; object-fit:cover; }
+.hero-photo .mono{ font-family:'Sora'; font-weight:800; font-size:70px; color:var(--green-600); }
+.halo{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:min(112%,430px); aspect-ratio:1/1; border-radius:50%;
+  border:1px solid var(--line); z-index:1;
+}
+
+.float-chip{
+  position:absolute; z-index:3; background:#fff;
+  border:1px solid var(--line); border-radius:999px;
+  padding:6px 13px; box-shadow:var(--sh-sm);
+  display:flex; align-items:center; gap:6px;
+  font-size:11px; font-weight:600; color:var(--ink-soft);
+}
+.float-chip svg{ width:12px; height:12px; stroke:var(--green-600); flex:none; }
+.float-chip.a{ bottom:9%; left:2%; }
+
+/* Indicador de rolagem ------------------------------------------- */
+.scroll-hint{
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  margin:26px auto 0; width:fit-content; cursor:pointer;
+  background:none; border:none; color:var(--muted-light);
+  font-size:12px; font-weight:600; letter-spacing:.06em;
+  transition:opacity .5s var(--ease), transform .4s var(--ease), color .25s;
+}
+.scroll-hint:hover{ color:var(--green-700); }
+.scroll-hint.hidden{ opacity:0; pointer-events:none; transform:translateY(10px); }
+.scroll-hint .chevs{ display:flex; flex-direction:column; align-items:center; height:20px; overflow:hidden; }
+.scroll-hint .chevs svg{ width:18px; height:18px; stroke:currentColor; margin-top:-7px; animation:chevDown 1.7s var(--ease) infinite; }
+.scroll-hint .chevs svg:nth-child(2){ animation-delay:.18s; }
+@keyframes chevDown{
+  0%{ opacity:0; transform:translateY(-6px); }
+  35%{ opacity:1; transform:translateY(0); }
+  70%{ opacity:1; }
+  100%{ opacity:0; transform:translateY(6px); }
+}
+
+/* ===================================================================
+   SEÇÕES
+   =================================================================== */
+section{ padding:96px 0; scroll-margin-top:86px; position:relative; }
+[data-rise]{ opacity:0; transform:translateY(22px); transition:opacity .7s var(--ease-out), transform .7s var(--ease-out); }
+[data-rise].visible{ opacity:1; transform:none; }
+.head{ max-width:660px; margin:0 auto 54px; text-align:center; }
+.head .kicker{
+  display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.09em;
+  color:var(--badge-text); background:var(--tint);
+  padding:6px 14px; border-radius:999px; margin-bottom:16px;
+}
+.head h2{ font-size:clamp(28px,4.2vw,42px); font-weight:800; line-height:1.14; }
+.head p{ margin-top:16px; color:var(--muted); font-size:16.5px; }
+
+/* --- Diferenciais ------------------------------------------------ */
+.feat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.feat{
+  background:var(--card); border:1px solid var(--line); border-radius:var(--r-md);
+  padding:30px 26px; position:relative; overflow:hidden;
+  transition:transform .45s var(--ease-out), box-shadow .45s var(--ease-out), border-color .45s var(--ease);
+}
+.feat::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:3px;
+  background:var(--green-600);
+  transform:scaleX(0); transform-origin:left;
+  transition:transform .55s var(--ease-out);
+}
+.feat:hover{ transform:translateY(-6px); box-shadow:var(--sh-md); border-color:var(--line-strong); }
+.feat:hover::before{ transform:scaleX(1); }
+.feat::after{
+  content:""; position:absolute; top:0; left:-60%; width:35%; height:100%;
+  background:linear-gradient(115deg, transparent, rgba(255,255,255,.65), transparent);
+  transform:skewX(-18deg); pointer-events:none;
+  transition:left .7s var(--ease-out);
+}
+.feat:hover::after{ left:130%; }
+.feat .ico{
+  width:52px; height:52px; border-radius:15px; background:var(--tint);
+  display:flex; align-items:center; justify-content:center; margin-bottom:18px;
+  transition:background-color .4s var(--ease), transform .5s var(--ease-out);
+}
+.feat:hover .ico{ background:var(--green-500); transform:rotate(-6deg) scale(1.06); }
+.feat .ico svg{ width:25px; height:25px; stroke:var(--green-600); transition:stroke .4s var(--ease); }
+.feat:hover .ico svg{ stroke:#fff; }
+.feat h3{ font-size:17px; font-weight:700; margin-bottom:8px; }
+.feat p{ font-size:14.5px; color:var(--muted); }
+
+/* --- Números / estatísticas ---------------------------------------- */
+#numeros{ padding:56px 0; border-top:1px solid var(--line); }
+.stats-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+.stat{ text-align:center; }
+.stat .num{
+  font-family:'Sora'; font-weight:800; color:var(--green-600);
+  font-size:clamp(30px,4.4vw,44px); line-height:1;
+}
+.stat .label{ margin-top:10px; font-size:13.5px; color:var(--muted); font-weight:500; }
+
+/* --- Planos ------------------------------------------------------ */
+.plans{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; align-items:stretch; }
+.plan{
+  background:var(--card); border:1px solid var(--line); border-radius:var(--r-lg);
+  padding:34px 28px 30px; display:flex; flex-direction:column; position:relative;
+  transition:transform .45s var(--ease-out), box-shadow .45s var(--ease-out), border-color .4s var(--ease);
+}
+.plan:hover{ transform:translateY(-7px) scale(1.008); box-shadow:var(--sh-md); border-color:var(--line-strong); }
+.plan.hot{
+  border:2px solid var(--green-400); box-shadow:var(--sh-lg);
+  background:linear-gradient(180deg,#F6FEF8,var(--card) 40%);
+}
+.plan.hot:hover{ transform:translateY(-11px); }
+.plan-tag{
+  position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+  background:var(--green-600);
+  color:#fff; font-size:11.5px; font-weight:700; letter-spacing:.05em;
+  padding:7px 18px; border-radius:999px; white-space:nowrap;
+  box-shadow:var(--sh-green);
+}
+.plan h3{ font-size:15px; font-weight:700; letter-spacing:.1em; color:var(--muted); }
+.plan .price{ font-family:'Sora'; font-size:40px; font-weight:800; color:var(--ink); margin-top:12px; line-height:1; }
+.plan .price .cents{ font-size:24px; }
+.plan .price-sub{ font-size:13.5px; color:var(--muted); margin-top:9px; }
+.plan .save{
+  display:inline-block; margin-top:12px; font-size:12.5px; font-weight:700;
+  color:var(--badge-text); background:var(--tint); padding:5px 12px; border-radius:8px;
+}
+.plan .divider{ height:1px; background:var(--line); margin:24px 0 20px; }
+.plan ul{ display:flex; flex-direction:column; gap:12px; flex:1; margin-bottom:28px; }
+.plan li{ display:flex; gap:10px; align-items:flex-start; font-size:14.2px; color:var(--ink-soft); }
+.plan li svg{ width:17px; height:17px; flex:none; margin-top:2px; stroke:var(--green-600); }
+.plan .btn{ width:100%; }
+.plans-note{ text-align:center; margin-top:34px; color:var(--muted); font-size:14.5px; }
+
+/* --- Abas de detalhes -------------------------------------------- */
+.tabs{
+  display:flex; gap:8px; max-width:640px; margin:0 auto 26px;
+  background:var(--card); border:1px solid var(--line);
+  border-radius:999px; padding:6px; position:relative; box-shadow:var(--sh-sm);
+}
+.tabs .glider{
+  position:absolute; top:6px; bottom:6px; border-radius:999px;
+  background:var(--green-600);
+  box-shadow:var(--sh-green); z-index:0;
+  transition:transform .5s var(--ease-out), width .5s var(--ease-out);
+}
+.tab{
+  flex:1; position:relative; z-index:1; padding:13px 8px; border:none; background:none;
+  border-radius:999px; font-weight:700; font-size:14.2px; color:var(--muted);
+  cursor:pointer; transition:color .35s var(--ease);
+}
+.tab[aria-selected="true"]{ color:#fff; }
+.tab:focus-visible{ outline:2.5px solid var(--green-700); outline-offset:2px; }
+
+.panel-box{ max-width:880px; margin:0 auto; position:relative; }
+.panel{
+  display:none;
+  background:var(--card); border:1px solid var(--line);
+  border-top:4px solid var(--green-500);
+  border-radius:var(--r-lg); padding:36px 38px; box-shadow:var(--sh-md);
+}
+.panel.on{ display:block; animation:panelIn .5s var(--ease-out); }
+@keyframes panelIn{ from{ opacity:0; transform:translateY(14px) scale(.99); } to{ opacity:1; transform:none; } }
+
+.panel-top{ display:flex; gap:20px; align-items:flex-start; }
+.panel-top .ico{
+  width:58px; height:58px; border-radius:16px; background:var(--tint);
+  display:flex; align-items:center; justify-content:center; flex:none;
+}
+.panel-top .ico svg{ width:27px; height:27px; stroke:var(--green-600); }
+.panel-top h3{ font-size:23px; font-weight:700; }
+.panel-tag{
+  display:inline-block; margin-top:10px; background:var(--tint); color:var(--badge-text);
+  font-size:13.5px; font-weight:700; padding:9px 15px; border-radius:11px; line-height:1.45;
+}
+.panel-desc{ margin-top:22px; color:var(--muted); font-size:15.5px; }
+.panel-cols{ display:grid; grid-template-columns:1fr 1fr; gap:30px; margin-top:28px; }
+.panel-cols h4{ font-size:15.5px; font-weight:700; display:flex; align-items:center; gap:9px; margin-bottom:14px; }
+.panel-cols h4::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--green-500); }
+.panel-cols li{ font-size:14.2px; color:var(--ink-soft); padding-left:18px; position:relative; margin-bottom:10px; }
+.panel-cols li::before{ content:""; position:absolute; left:0; top:8px; width:6px; height:6px; border-radius:50%; background:var(--green-300); }
+.panel-for{ background:var(--tint); border-radius:14px; padding:18px; font-size:14.2px; color:var(--ink-soft); }
+
+/* --- Benefícios (parceiros) -------------------------------------- */
+.ben-steps{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+  max-width:920px; margin:0 auto 40px; position:relative;
+}
+.ben-steps::before{
+  content:""; position:absolute; top:26px; left:12%; right:12%; height:1px;
+  background:repeating-linear-gradient(90deg, var(--line-strong) 0 8px, transparent 8px 16px);
+  z-index:0;
+}
+.ben-step{ position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; }
+.ben-step-num{
+  width:52px; height:52px; border-radius:50%; background:#fff;
+  border:1.5px solid var(--line-strong); display:flex; align-items:center; justify-content:center;
+  font-family:'Sora'; font-weight:800; font-size:18px; color:var(--green-600);
+  transition:background-color .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease-out);
+}
+.ben-step:hover .ben-step-num{ background:var(--green-600); color:#fff; border-color:var(--green-600); transform:scale(1.08); }
+.ben-step h4{ font-size:14.5px; font-weight:700; color:var(--ink); }
+.ben-step p{ font-size:12.5px; color:var(--muted); }
+
+.ben-count{
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--tint); color:var(--badge-text); font-size:12.5px; font-weight:700;
+  padding:7px 15px; border-radius:999px; margin-top:14px;
+}
+.ben-count .dot{ width:6px; height:6px; border-radius:50%; background:var(--green-500); animation:ping 2.4s var(--ease) infinite; }
+
+.ben-filters{ display:flex; flex-wrap:wrap; gap:9px; justify-content:center; margin-bottom:38px; }
+.chip{
+  border:1.5px solid var(--line-strong); background:var(--card);
+  color:var(--ink-soft); font-weight:600; font-size:13.5px;
+  padding:12px 20px; border-radius:999px; cursor:pointer;
+  transition:all .35s var(--ease);
+}
+.chip:hover{ border-color:var(--green-400); color:var(--green-700); }
+.chip.on{ background:var(--ink); border-color:var(--ink); color:#fff; }
+
+.ben-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; align-items:start; }
+.ben{
+  background:#fff; border:1px solid var(--line); border-radius:var(--r-md);
+  padding:22px; position:relative; overflow:hidden;
+  display:flex; flex-direction:column; gap:14px;
+  transition:transform .35s var(--ease-out), box-shadow .35s var(--ease-out), border-color .35s var(--ease);
+}
+.ben:hover{ transform:translateY(-5px); box-shadow:var(--sh-md); border-color:var(--line-strong); }
+.ben::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:3px;
+  background:var(--green-600);
+  transform:scaleX(0); transform-origin:left; transition:transform .55s var(--ease-out);
+}
+.ben:hover::before{ transform:scaleX(1); }
+.ben::after{
+  content:""; position:absolute; top:0; left:-60%; width:35%; height:100%;
+  background:linear-gradient(115deg, transparent, rgba(255,255,255,.6), transparent);
+  transform:skewX(-18deg); pointer-events:none;
+  transition:left .7s var(--ease-out);
+}
+.ben:hover::after{ left:130%; }
+.ben-head{ display:flex; align-items:center; gap:16px; }
+.ben-logo{
+  width:76px; height:76px; border-radius:50%; flex:none;
+  display:flex; align-items:center; justify-content:center; overflow:hidden;
+  clip-path:circle(50%);
+  font-family:'Sora'; font-weight:800; font-size:21px; color:#fff;
+  background:var(--green-600);
+  border:1.5px solid var(--line-strong);
+  box-shadow:inset 0 0 0 3px #fff;
+}
+.ben-logo-img{ width:100%; height:100%; border-radius:50%; overflow:hidden; }
+.ben-logo img{ width:100%; height:100%; object-fit:cover; display:block; }
+.ben-logo.dark{ background:var(--ink); border-color:var(--ink); box-shadow:none; }
+.ben-name{ font-family:'Sora'; font-weight:700; font-size:17px; color:var(--ink); line-height:1.3; }
+.ben-cat{ display:flex; align-items:center; gap:6px; font-size:12.5px; color:var(--muted-light); font-weight:500; margin-top:4px; }
+.ben-cat svg{ width:13px; height:13px; stroke:var(--green-600); flex:none; }
+.ben-off{
+  align-self:flex-start;
+  background:var(--tint); color:var(--badge-text);
+  font-size:12.5px; font-weight:700; letter-spacing:.01em;
+  padding:7px 15px; border-radius:999px;
+}
+.ben p{ font-size:14.2px; color:var(--muted); line-height:1.55; }
+
+.ben-cta{
+  margin-top:44px; background:var(--ink);
+  border-radius:var(--r-lg); padding:40px 38px; color:#EAF7EC;
+  display:flex; align-items:center; justify-content:space-between; gap:30px; flex-wrap:wrap;
+}
+.ben-cta h3{ color:#fff; font-size:22px; font-weight:700; }
+.ben-cta p{ color:#C9E4CD; font-size:15px; margin-top:8px; max-width:50ch; }
+.ben-cta .btn-primary{ background:#fff; color:var(--ink); box-shadow:0 14px 30px -14px rgba(0,0,0,.5); }
+.ben-cta .btn-primary::after{ background:#F2FBF3; }
+
+/* --- Perguntas frequentes ------------------------------------------- */
+.faq-list{ max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:12px; }
+.faq-item{
+  background:var(--card); border:1px solid var(--line); border-radius:var(--r-md);
+  overflow:hidden; transition:border-color .3s var(--ease), box-shadow .3s var(--ease);
+}
+.faq-item.open{ border-color:var(--line-strong); box-shadow:var(--sh-sm); }
+.faq-q{
+  width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px;
+  padding:20px 22px; background:none; border:none; cursor:pointer; text-align:left;
+  font-family:'Sora'; font-weight:700; font-size:15.5px; color:var(--ink);
+}
+.faq-q .plus{
+  width:26px; height:26px; border-radius:50%; background:var(--tint); flex:none;
+  display:flex; align-items:center; justify-content:center;
+  transition:background-color .3s var(--ease), transform .35s var(--ease-out);
+}
+.faq-item.open .faq-q .plus{ background:var(--green-600); transform:rotate(135deg); }
+.faq-q .plus svg{ width:13px; height:13px; stroke:var(--green-600); transition:stroke .3s var(--ease); }
+.faq-item.open .faq-q .plus svg{ stroke:#fff; }
+.faq-a{ max-height:0; overflow:hidden; transition:max-height .4s var(--ease-out); }
+.faq-a p{ padding:0 22px 20px; color:var(--muted); font-size:14.5px; line-height:1.65; }
+
+/* --- Depoimentos (esteira horizontal com auto-scroll) --------------- */
+.testi-marquee{
+  display:flex; flex-direction:column; gap:20px;
+  overflow:hidden; position:relative;
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+  mask-image:linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+}
+.testi-row{ display:flex; gap:20px; width:max-content; will-change:transform; }
+.testi-row.left{ animation:scrollLeft var(--dur,50s) linear infinite; }
+.testi-row.right{ animation:scrollRight var(--dur,50s) linear infinite; }
+.testi-marquee:hover .testi-row{ animation-play-state:paused; }
+@keyframes scrollLeft{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+@keyframes scrollRight{ from{ transform:translateX(-50%); } to{ transform:translateX(0); } }
+
+.t-card{
+  width:320px; flex:none;
+  background:var(--card); border:1px solid var(--line); border-radius:var(--r-md);
+  padding:24px; transition:transform .3s var(--ease-out), box-shadow .3s var(--ease-out), border-color .3s var(--ease);
+}
+
+.t-card:hover{ transform:translateY(-3px); box-shadow:var(--sh-md); border-color:var(--line-strong); }
+.t-card .quote{ width:26px; height:26px; fill:var(--green-300); margin-bottom:12px; }
+.t-card p{ font-size:14.2px; color:var(--ink-soft); }
+.t-foot{ display:flex; align-items:center; gap:11px; margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
+.t-av{
+  width:40px; height:40px; border-radius:50%; flex:none; overflow:hidden;
+  background:var(--green-500);
+  color:#fff; font-family:'Sora'; font-weight:700; font-size:14px;
+  display:flex; align-items:center; justify-content:center;
+}
+.t-av img{ width:100%; height:100%; object-fit:cover; }
+.t-name{ font-weight:700; font-size:14px; color:var(--ink); }
+.t-stars{ display:flex; gap:2px; margin-top:2px; }
+.t-stars svg{ width:12px; height:12px; fill:#F5B93B; }
+
+/* --- CTA final ---------------------------------------------------- */
+.final-grid{ display:grid; grid-template-columns:1.5fr .5fr; gap:44px; align-items:center; }
+.final-copy{ text-align:left; }
+.final-copy h2{ font-size:clamp(28px,4vw,42px); font-weight:800; line-height:1.14; }
+.final-copy p{ margin-top:18px; color:var(--muted); font-size:16.5px; max-width:48ch; }
+.final-copy .btn{ margin-top:28px; padding:18px 34px; font-size:15.5px; }
+.final-trust{ display:flex; flex-wrap:wrap; gap:12px 24px; margin-top:26px; }
+.final-trust li{ display:flex; align-items:center; gap:8px; font-size:14px; color:var(--muted); font-weight:500; }
+.final-trust svg{ width:16px; height:16px; stroke:var(--green-600); flex:none; }
+
+.final-photo{ display:flex; justify-content:center; }
+.final-photo img{
+  width:100%; max-width:240px; aspect-ratio:4/5; object-fit:cover;
+  border-radius:var(--r-lg); border:4px solid #fff; box-shadow:var(--sh-lg);
+}
+
+/* --- Footer ------------------------------------------------------- */
+footer{ background:var(--footer-bg); color:#E9F6EA; padding:64px 0 26px; position:relative; overflow:hidden; }
+footer::before{
+  content:""; position:absolute; top:-140px; right:-100px; width:340px; height:340px;
+  border-radius:50%; background:rgba(255,255,255,.05); pointer-events:none;
+}
+.f-grid{
+  display:grid; grid-template-columns:1.2fr .8fr .9fr; gap:32px;
+  text-align:left; position:relative; z-index:1;
+}
+.f-brand{ display:inline-flex; align-items:center; gap:11px; }
+.f-logo{ height:62px; width:auto; filter:brightness(0) invert(1); opacity:.96; }
+.f-tagline{ margin-top:16px; font-size:14px; line-height:1.6; color:#C9E4CD; max-width:34ch; }
+.f-cred{ margin-top:16px; font-size:13.5px; color:#AFD8B3; font-weight:600; }
+
+.f-col h4{
+  font-family:'Sora'; font-size:13px; font-weight:700; letter-spacing:.06em;
+  color:#9FCBA4; text-transform:uppercase; margin-bottom:16px;
+}
+.f-col ul{ display:flex; flex-direction:column; gap:11px; }
+.f-col a{ font-size:14.5px; color:#DCF0DD; transition:color .25s var(--ease), padding-left .25s var(--ease); }
+.f-col a:hover{ color:#fff; padding-left:4px; }
+
+.f-contact-row{ display:flex; align-items:center; gap:10px; font-size:14.5px; color:#DCF0DD; }
+.f-contact-row svg{ width:17px; height:17px; stroke:#8FCB98; flex:none; }
+.f-contact-row a:hover{ color:#fff; }
+.f-social{ display:flex; gap:11px; margin-top:20px; }
+.f-social a{
+  width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.09);
+  display:flex; align-items:center; justify-content:center;
+  transition:background-color .35s var(--ease), transform .35s var(--ease-out);
+}
+.f-social a:hover{ background:rgba(255,255,255,.2); transform:translateY(-3px); }
+.f-social svg{ width:17px; height:17px; stroke:#E9F6EA; }
+
+.f-div{ border:none; border-top:1px solid var(--footer-line); margin:44px 0 20px; position:relative; z-index:1; }
+.f-bottom{ display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; position:relative; z-index:1; }
+.f-copy{ font-size:12.5px; color:#AFD8B3; }
+.f-by{ font-size:12.5px; color:#8FBF95; }
+
+/* --- Botões flutuantes ------------------------------------------- */
+.fab-stack{
+  position:fixed; right:20px; bottom:20px; z-index:70;
+  display:flex; flex-direction:column; align-items:center; gap:14px;
+}
+.fab{
+  width:58px; height:58px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  position:relative; transition:transform .3s var(--ease-out), box-shadow .3s var(--ease-out);
+  opacity:0; transform:translateY(16px) scale(.8);
+  animation:fabIn .5s var(--ease-out) forwards;
+}
+@keyframes fabIn{ to{ opacity:1; transform:translateY(0) scale(1); } }
+.fab:hover{ transform:scale(1.1); }
+.fab svg{ width:27px; height:27px; fill:#fff; position:relative; z-index:2; }
+
+.fab-wpp{
+  background:linear-gradient(135deg,#2CE571,#128C7E);
+  box-shadow:0 10px 26px -8px rgba(18,140,126,.65);
+  animation-delay:.15s;
+}
+.fab-wpp::before{
+  content:""; position:absolute; inset:0; border-radius:50%;
+  border:1.5px solid #25D366; pointer-events:none;
+  animation:pulseRing 2.6s var(--ease) infinite;
+}
+@keyframes pulseRing{
+  0%{ transform:scale(1); opacity:.5; }
+  100%{ transform:scale(1.5); opacity:0; }
+}
+
+  .fab-ig{
+  width:54px; height:54px;
+  background:radial-gradient(circle at 30% 110%, #ffdd55 0%, #ffdd55 10%, #ff543e 45%, #c837ab 70%, #4f5bd5 100%);
+  box-shadow:0 8px 22px -8px rgba(196,45,145,.55);
+  animation-delay:.3s;
+}
+.fab-ig svg{ width:23px; height:23px; }
+.fab-ig:hover{ transform:scale(1.12) rotate(-6deg); }
+
+/* ===================================================================
+   ANIMAÇÕES DE ENTRADA
+   =================================================================== */
+[data-rise]{
+  opacity:0; transform:translateY(26px);
+  transition:opacity .75s var(--ease-out), transform .75s var(--ease-out);
+  transition-delay:var(--d,0ms);
+}
+[data-rise].in{ opacity:1; transform:none; }
+
+[data-fade]{
+  opacity:0;
+  transition:opacity .9s var(--ease-out);
+  transition-delay:var(--d,0ms);
+}
+[data-fade].in{ opacity:1; }
+
+/* Entrada orquestrada do hero (no load) */
+.hero-pill,.hero h1,.hero .lead,.hero-actions,.trust,.hero-figure,.scroll-hint{
+  opacity:0; transform:translateY(22px);
+  animation:heroIn .85s var(--ease-out) forwards;
+}
+.hero-pill{ animation-delay:.05s; }
+.hero h1{ animation-delay:.14s; }
+.hero .lead{ animation-delay:.23s; }
+.hero-actions{ animation-delay:.32s; }
+.trust{ animation-delay:.41s; }
+.hero-figure{ animation-delay:.2s; }
+.scroll-hint{ animation-delay:.72s; }
+@keyframes heroIn{ to{ opacity:1; transform:none; } }
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation:none !important; transition-duration:.01ms !important; }
+  [data-rise],[data-fade],.hero-pill,.hero h1,.hero .lead,.hero-actions,.trust,.hero-figure,.scroll-hint{
+    opacity:1 !important; transform:none !important;
+  }
+  .testi-marquee{ -webkit-mask-image:linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent); mask-image:linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent); }
+  .testi-row.left{ animation:scrollLeft 110s linear infinite !important; }
+  .testi-row.right{ animation:scrollRight 110s linear infinite !important; }
+  .fab{ opacity:1 !important; transform:none !important; }
+  .fab-wpp::before, .fab-wpp::after{ display:none; }
+  .loader{ transition:none; }
+  .loader-mark{ animation:none; }
+  section::before, section::after{ animation:none !important; }
+}
+
+/* ===================================================================
+   RESPONSIVO
+   =================================================================== */
+@media (max-width:1000px){
+  .feat-grid,.ben-grid{ grid-template-columns:repeat(2,1fr); }
+  .plans{ grid-template-columns:1fr; max-width:460px; margin:0 auto; }
+  .plan.hot{ transform:none; }
+  .plan.hot:hover{ transform:translateY(-6px); }
+  .t-card{ width:280px; }
+}
+@media (max-width:860px){
+  .nav-links{ display:none; }
+  .burger{ display:block; }
+  .hero{ padding-top:36px; }
+  .hero-grid{ grid-template-columns:1fr; gap:38px; text-align:center; }
+  .hero-figure{ order:-1; }
+  .hero-photo{ width:min(72%,260px); }
+  .halo{ width:min(86%,310px); }
+  .float-chip{ display:none; }
+  .hero .lead{ margin-inline:auto; }
+  .hero-actions,.trust{ justify-content:center; }
+  .panel-cols{ grid-template-columns:1fr; }
+  .panel{ padding:28px 22px; }
+  .ben-cta{ flex-direction:column; text-align:center; align-items:center; }
+  .ben-steps{ grid-template-columns:1fr; gap:22px; max-width:320px; }
+  .ben-steps::before{ display:none; }
+  section{ padding:68px 0; }
+
+  .final-grid{ grid-template-columns:1fr; gap:32px; text-align:center; }
+  .final-copy{ text-align:center; order:2; }
+  .final-copy p{ margin-inline:auto; }
+  .final-trust{ justify-content:center; }
+  .final-photo{ order:1; }
+  .final-photo img{ max-width:220px; }
+
+  .f-grid{ grid-template-columns:1fr; gap:34px; text-align:center; }
+  .f-brand{ justify-content:center; }
+  .f-tagline{ margin-inline:auto; }
+  .f-col ul{ align-items:center; }
+  .f-contact-row{ justify-content:center; }
+  .f-social{ justify-content:center; }
+  .f-bottom{ justify-content:center; text-align:center; flex-direction:column; gap:4px; }
+}
+  @media (max-width:620px){
+  body{ font-size:14px; }
+  section{ padding:52px 0; }
+  .hero{ padding:18px 0 8px; }
+  .hero-grid{ gap:24px; }
+  .hero h1{ font-size:clamp(27px,8vw,34px); }
+  .hero .lead{ font-size:14px; line-height:1.5; margin-top:14px; }
+  .hero-actions{ margin-top:20px; gap:9px; }
+  .hero-actions .btn{ padding:12px 16px; font-size:13px; }
+  .trust{ margin-top:20px; gap:7px 14px; }
+  .trust li{ font-size:12px; }
+  .scroll-hint{ margin-top:14px; font-size:10px; }
+  .stats-grid{ grid-template-columns:repeat(2,1fr); gap:28px 16px; }
+  .feat-grid,.ben-grid{ grid-template-columns:1fr; }
+  .t-card{ width:250px; padding:20px; }
+  .testi-row{ gap:14px; }
+  .testi-marquee{ gap:14px; }
+  .tabs{ flex-direction:column; border-radius:var(--r-md); }
+  .tabs .glider{ display:none; }
+  .tab{ border-radius:12px; }
+  .tab[aria-selected="true"]{
+    background:var(--green-600);
+    box-shadow:var(--sh-green);
+  }
+  .panel-top{ flex-direction:column; gap:14px; }
+  .btn{ width:100%; }
+  .hero-actions .btn{ width:100%; }
+
+  .wrap{ padding:0 18px; }
+  .hero{ padding-top:24px; }
+  .hero-pill{ font-size:12px; padding:7px 13px; }
+  .hero h1{ font-size:clamp(30px,9vw,38px); }
+  .hero .lead{ font-size:15.5px; }
+  .topbar{ display:none; }
+  .brand-logo{ height:68px; }
+  header.scrolled .brand-logo{ height:56px; }
+  .nav{ gap:8px; }
+  .burger{ padding:12px; }
+  .head{ margin-bottom:24px; }
+  .head h2{ line-height:1.12; }
+  .head p{ line-height:1.5; }
+  .ben{ padding:17px; border-radius:17px; gap:11px; }
+  .ben:nth-child(3n+2){ transform:none; }
+  .ben-head{ gap:11px; }
+  .ben-logo{ width:54px; height:54px; border-radius:50%; box-shadow:inset 0 0 0 3px #fff; }
+  .ben-name{ font-size:14px; }
+  .ben-cat{ font-size:11px; }
+  .ben-off{ font-size:11px; padding:6px 12px; }
+  .ben p{ font-size:12.5px; }
+  .ben-filters{ margin-bottom:22px; overflow-x:auto; justify-content:flex-start; flex-wrap:nowrap; padding-bottom:4px; }
+  .chip{ white-space:nowrap; padding:11px 14px; font-size:11.5px; }
+  .ben-cta{ margin-top:26px; padding:24px 18px; gap:18px; }
+  .ben-cta h3{ font-size:18px; }
+  .ben-cta p{ font-size:13px; }
+  .testi-marquee{ gap:12px; }
+  .testi-row{ gap:12px; }
+  .t-card{ width:220px; padding:16px; }
+  .t-card{ padding:15px; }
+  .t-card p{ font-size:12.5px; }
+  .fab-stack{ right:13px; bottom:13px; gap:9px; }
+  .fab{ width:48px; height:48px; }
+  .fab svg{ width:22px; height:22px; }
+  
+  .head{ margin-bottom:24px; }
+  .head h2{ font-size:clamp(23px,7vw,30px); }
+  .head p{ font-size:15px; }
+
+  .feat{ padding:24px 20px; }
+  .plan{ padding:28px 22px 24px; }
+  .plan .price{ font-size:34px; }
+
+  .ben-filters{ gap:7px; }
+  .chip{ padding:12px 15px; font-size:13px; }
+  .ben{ padding:20px; }
+  .ben-logo{ width:64px; height:64px; border-radius:50%; }
+  .ben-cta{ padding:30px 24px; }
+
+  .t-card{ padding:20px; }
+
+  footer{ padding:44px 0 24px; }
+  .f-logo{ height:56px; }
+}
+@media (max-width:380px){
+  .trust{ gap:8px 16px; }
+  .trust li{ font-size:13px; }
+  .hero-actions{ gap:10px; }
+}
+/* --- Refinos de interação e conversão ------------------------------- */
+.fab-stack{gap:12px;}
+.fab{
+  overflow:visible;
+  box-shadow:0 12px 28px -8px rgba(16,51,26,.35);
+  animation:fabIn .6s var(--ease-out) forwards, fabFloat 3.2s ease-in-out 1s infinite;
+}
+.fab::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(255,255,255,.5);opacity:0;transition:opacity .3s,transform .3s;}
+.fab:hover::after{opacity:1;transform:scale(1.12);}
+.fab-ig{background:linear-gradient(145deg,#833ab4 0%,#e1306c 48%,#fcb045 100%);box-shadow:0 12px 30px -8px rgba(225,48,108,.55);animation-delay:0s, .4s;}
+.fab-ig svg{fill:none;stroke:#fff;stroke-width:2.1;filter:drop-shadow(0 1px 1px rgba(0,0,0,.18));}
+.fab-wpp{animation-delay:.15s,1.1s;}
+@keyframes fabFloat{0%,100%{margin-bottom:0}50%{margin-bottom:5px}}
+
+/* Clube: cards mais editoriais, escaneáveis e com hierarquia comercial */
+#beneficios{background:linear-gradient(180deg,#f7fcf7 0%,#fff 100%);}
+#beneficios .head h2{max-width:680px;}
+#beneficios .head p{max-width:650px;}
+.ben-cta{background:linear-gradient(135deg,#10331a,#226d31);box-shadow:0 18px 35px -24px rgba(16,51,26,.8);position:relative;overflow:hidden;}
+.ben-cta::after{content:"";position:absolute;width:220px;height:220px;border:1px solid rgba(255,255,255,.12);border-radius:50%;right:-60px;top:-100px;animation:orbFloat 6s ease-in-out infinite alternate;}
+
+/* Movimento contínuo dos depoimentos */
+.t-card{box-shadow:0 8px 22px -20px rgba(16,51,26,.75);}
+
+@media (max-width:620px){
+  .wrap{padding:0 15px;}
+  section{padding:40px 0;}
+  .brand-logo{height:58px;}
+  header.scrolled .brand-logo{height:50px;}
+  .hero{padding-top:16px;}
+  .hero-grid{gap:18px;}
+  .hero h1{font-size:clamp(26px,8vw,34px);}
+  .hero .lead{font-size:14px;}
+  .hero-actions{margin-top:16px;}
+  .head h2{font-size:clamp(22px,6.5vw,28px);}
+  .head p{font-size:14px;}
+  .feat{padding:18px 16px;}
+  .plan{padding:22px 18px 20px;}
+  .plan .price{font-size:30px;}
+  .ben{padding:16px;border-radius:16px;gap:10px;}
+  .ben-head{gap:10px;}
+  .ben-logo{width:52px;height:52px;border-radius:50%;}
+  .ben-name{font-size:13.5px;}
+  .ben p{font-size:12px;}
+  .ben-cta{margin-top:22px;padding:22px 18px;}
+  .fab-stack{right:10px;bottom:10px;gap:8px;}
+  .fab{width:46px;height:46px;}
+  .fab svg{width:23px;height:23px;}
+}
+@media (prefers-reduced-motion:reduce){.fab{animation:fabIn .01s forwards;}.ben:hover,.ben:nth-child(3n+2):hover{transform:none;}}
+
+/* --- Ajuste final: caixinhas mais compactas e foto do hero menor no celular --- */
+@media (max-width:620px){
+  .hero-photo{ width:min(58%,200px); }
+  .halo{ width:min(72%,240px); }
+  section{ padding:44px 0; }
+  #numeros{ padding:32px 0; }
+  .stats-grid{ gap:22px 14px; }
+  .stat .num{ font-size:clamp(24px,7vw,32px); }
+  .stat .label{ font-size:12px; margin-top:6px; }
+  .feat{ padding:16px 15px; border-radius:14px; }
+  .feat .ico{ width:42px; height:42px; margin-bottom:12px; }
+  .feat h3{ font-size:15px; margin-bottom:5px; }
+  .feat p{ font-size:12.5px; }
+  .plan{ padding:20px 16px 18px; }
+  .plan .price{ font-size:28px; }
+  .panel{ padding:20px 16px; }
+  .panel-top .ico{ width:46px; height:46px; }
+  .panel-top h3{ font-size:18px; }
+  .ben{ padding:14px; border-radius:14px; gap:8px; }
+  .ben-logo{ width:46px; height:46px; border-radius:50%; box-shadow:inset 0 0 0 3px #fff; }
+  .ben-name{ font-size:13px; }
+  .ben-steps{ gap:16px; }
+  .ben-step-num{ width:42px; height:42px; font-size:15px; }
+  .ben-count{ font-size:11.5px; padding:6px 12px; }
+  .t-card{ width:210px; padding:14px; }
+  .t-card p{ font-size:12px; }
+  .t-av{ width:32px; height:32px; }
+  .faq-q{ padding:15px 16px; font-size:14px; }
+  .faq-a p{ padding:0 16px 15px; font-size:13.5px; }
+  .final-photo img{ max-width:170px; }
+}
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-mark"><img src="assets/favicon.png" alt=""></div>
+</div>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="topbar-left">
+      <span class="topbar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-7-10a7 7 0 0 1 14 0c0 5.4-7 10-7 10Z"/><circle cx="12" cy="11" r="2.4"/></svg>
+        Atendimento presencial e online
+      </span>
+      <span class="topbar-item" id="topCrn"></span>
+    </div>
+    <div class="topbar-right">
+      <a id="topTel" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2.2Z"/></svg>
+        <span id="topTelText"></span>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<header id="hdr">
+  <div class="wrap">
+    <div class="nav">
+      <a class="brand" href="#top" aria-label="Início">
+        <img class="brand-logo" id="brandLogo" src="" alt="Everton Ferreira Nutricionista">
+      </a>
+      <nav class="nav-links">
+        <a data-scroll="metodo">Método</a>
+        <a data-scroll="planos">Planos</a>
+        <a data-scroll="beneficios">Benefícios</a>
+        <a data-scroll="depoimentos">Resultados</a>
+        <a class="btn btn-primary nav-cta btn-glow" id="ctaNav" href="#" target="_blank" rel="noopener noreferrer">Quero agendar</a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-menu" id="mmenu">
+      <a data-scroll="metodo">Método</a>
+      <a data-scroll="planos">Planos</a>
+      <a data-scroll="beneficios">Benefícios</a>
+      <a data-scroll="depoimentos">Resultados</a>
+      <a class="btn btn-primary btn-glow" id="ctaMenu" href="#" target="_blank" rel="noopener noreferrer" style="margin-top:6px;">Quero agendar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="hero-pill"><span class="dot"></span> Atendimento presencial e online</span>
+          <h1><span class="grad">Pacotes de</span><br>Acompanhamento</h1>
+          <p class="lead">Conquiste resultados consistentes e duradouros com um plano alimentar feito para você. <strong>Nutrição sem terrorismo, baseada em ciência.</strong></p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-glow" data-scroll="planos" href="#planos">Conhecer os planos</a>
+            <a class="btn btn-outline btn-glow" id="ctaHero" href="#" target="_blank" rel="noopener noreferrer">Agendar minha avaliação</a>
+          </div>
+          <ul class="trust">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Métodos baseados em ciência</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Suporte 7 dias por semana</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Resultados comprovados</li>
+          </ul>
+        </div>
+
+        <div class="hero-figure">
+          <div class="halo" aria-hidden="true"></div>
+          <div class="hero-photo" id="heroPhoto"><span class="mono">EF</span></div>
+        </div>
+      </div>
+
+      <button class="scroll-hint" id="scrollHint" aria-label="Rolar para ver mais">
+        ROLE PARA VER MAIS
+        <span class="chevs" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ NÚMEROS ============ -->
+  <section id="numeros">
+    <div class="wrap">
+      <div class="stats-grid" id="statsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ MÉTODO ============ -->
+  <section id="metodo">
+    <div class="wrap">
+      <div class="head" data-rise>
+        <span class="kicker">O MÉTODO</span>
+        <h2>Por que escolher o <span class="grad" id="brandTitle">Nutri Everton Ferreira</span>?</h2>
+        <p>Mais que um nutricionista, um parceiro comprometido com sua transformação e bem-estar.</p>
+      </div>
+      <div class="feat-grid" id="featGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ PLANOS ============ -->
+  <section id="planos">
+    <div class="wrap">
+      <div class="head" data-rise>
+        <span class="kicker">PLANOS</span>
+        <h2>Escolha o acompanhamento ideal para você</h2>
+        <p>Todos os planos incluem acompanhamento personalizado, suporte contínuo e acesso ao clube de benefícios.</p>
+      </div>
+      <div class="plans" id="plansGrid"></div>
+      <p class="plans-note" data-rise>Todas as consultas podem ser realizadas presencialmente ou online. Flexibilidade total para sua agenda.</p>
+    </div>
+  </section>
+
+  <!-- ============ DETALHES ============ -->
+  <section id="detalhes">
+    <div class="wrap">
+      <div class="head" data-rise>
+        <span class="kicker">COMPARATIVO</span>
+        <h2>Detalhes de cada plano</h2>
+        <p>Entenda melhor cada plano e descubra qual se encaixa perfeitamente com seus objetivos.</p>
+      </div>
+      <div class="tabs" id="tabs" role="tablist" data-rise><span class="glider" id="glider"></span></div>
+      <div class="panel-box" id="panels" data-rise style="--d:120ms"></div>
+    </div>
+  </section>
+
+  <!-- ============ BENEFÍCIOS ============ -->
+  <section id="beneficios">
+    <div class="wrap">
+      <div class="head" data-rise>
+        <span class="kicker">CLUBE DE BENEFÍCIOS</span>
+        <h2>Descontos exclusivos com nossos parceiros</h2>
+        <p>Ao fechar qualquer plano, você entra no clube e passa a ter desconto em academias, farmácias, suplementos, exames e muito mais — tudo dentro do app.</p>
+        <span class="ben-count"><span class="dot"></span> <span id="benCount">13</span> parceiros ativos em Belo Jardim</span>
+      </div>
+
+      <div class="ben-steps" data-rise>
+        <div class="ben-step">
+          <span class="ben-step-num">1</span>
+          <div><h4>Feche um plano</h4><p>Mensal, semestral ou anual</p></div>
+        </div>
+        <div class="ben-step">
+          <span class="ben-step-num">2</span>
+          <div><h4>Ative o Clube no app</h4><p>Acesso liberado na hora</p></div>
+        </div>
+        <div class="ben-step">
+          <span class="ben-step-num">3</span>
+          <div><h4>Use os cupons</h4><p>Direto com cada parceiro</p></div>
+        </div>
+      </div>
+
+      <div class="ben-filters" id="benFilters" data-rise></div>
+      <div class="ben-grid" id="benGrid"></div>
+      <div class="ben-cta" data-rise>
+        <div>
+          <h3>Os benefícios ficam na palma da sua mão</h3>
+          <p>Todos os cupons e links ficam disponíveis na aba Benefícios do app, junto com sua dieta, evolução e suplementação.</p>
+        </div>
+        <a class="btn btn-primary" id="ctaBen" href="#" target="_blank" rel="noopener noreferrer">Quero fazer parte</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DEPOIMENTOS ============ -->
+  <section id="depoimentos">
+    <div class="wrap">
+      <div class="head" data-rise>
+        <span class="kicker">DEPOIMENTOS</span>
+        <h2>O que os pacientes dizem sobre os resultados</h2>
+        <p>Histórias reais de transformação e sucesso com os nossos planos de acompanhamento.</p>
+      </div>
+      <div class="testi-marquee" id="testiWall" data-rise></div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="head" data-rise>
+        <span class="kicker">DÚVIDAS FREQUENTES</span>
+        <h2>Perguntas frequentes</h2>
+        <p>Ainda com dúvidas? Aqui estão as perguntas mais comuns antes de começar.</p>
+      </div>
+      <div class="faq-list" id="faqList"></div>
+    </div>
+  </section>
+
+  <!-- ============ CTA FINAL ============ -->
+  <section class="final">
+    <div class="wrap">
+      <div class="final-grid">
+        <div class="final-copy" data-rise>
+          <h2>Pronto para transformar sua saúde e <span class="grad">alcançar seus objetivos?</span></h2>
+          <p>Chega de dietas frustradas. Agende sua avaliação e vamos construir juntos um caminho de sucesso, com saúde e sem restrições desnecessárias.</p>
+          <a class="btn btn-primary btn-glow" id="ctaFinal" href="#" target="_blank" rel="noopener noreferrer">Agendar minha transformação</a>
+          <ul class="final-trust">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> Presencial e online</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> Suporte 7 dias por semana</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> Clube de benefícios incluso</li>
+          </ul>
+        </div>
+        <div class="final-photo" data-rise>
+          <img id="finalPhoto" src="" alt="Everton Ferreira">
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <div class="f-brand">
+          <img class="f-logo" id="fLogo" src="" alt="Everton Ferreira Nutricionista">
+        </div>
+        <p class="f-tagline">Acompanhamento nutricional personalizado, com ciência e sem restrições desnecessárias.</p>
+        <p class="f-cred" id="fCred">Dr. Everton Ferreira | Nutricionista - CRN 44304</p>
+      </div>
+
+      <div class="f-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a data-scroll="metodo" href="#metodo">Método</a></li>
+          <li><a data-scroll="planos" href="#planos">Planos</a></li>
+          <li><a data-scroll="beneficios" href="#beneficios">Benefícios</a></li>
+          <li><a data-scroll="depoimentos" href="#depoimentos">Resultados</a></li>
+        </ul>
+      </div>
+
+      <div class="f-col">
+        <h4>Contato</h4>
+        <div class="f-contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2.2Z"/></svg>
+          <a id="fTel" href="#"></a>
+        </div>
+        <div class="f-social">
+          <a id="fInsta" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.3" cy="6.7" r=".9" fill="#E9F6EA" stroke="none"/></svg>
+          </a>
+          <a id="fWpp" href="#" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="#E9F6EA" stroke="none"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.07-1.32A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="f-div">
+    <div class="f-bottom">
+      <p class="f-copy" id="fCopy"></p>
+      <p class="f-by" id="fBy"></p>
+    </div>
+  </div>
+</footer>
+
+<div class="fab-stack">
+  <a class="fab fab-ig" id="fabIg" href="#" target="_blank" rel="noopener noreferrer" aria-label="Seguir no Instagram">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.4" cy="6.6" r="1" fill="#fff" stroke="none"/></svg>
+  </a>
+  <a class="fab fab-wpp" id="fab" href="#" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.07-1.32A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.24.68-1.36 1.3-1.9 1.38-.5.08-1.1.11-1.78-.11-.4-.13-.93-.3-1.6-.6-2.8-1.2-4.6-4-4.75-4.2-.14-.2-1.13-1.5-1.13-2.86 0-1.36.7-2.03.96-2.3.24-.27.53-.34.7-.34h.5c.16 0 .38-.03.58.44.24.55.8 1.9.87 2.04.07.14.11.3.02.48-.08.18-.13.3-.26.46-.13.16-.27.35-.38.47-.13.13-.26.27-.11.53.14.27.65 1.07 1.4 1.74.96.86 1.77 1.13 2.03 1.26.27.13.42.11.58-.07.16-.18.66-.77.84-1.03.18-.27.35-.22.6-.13.24.09 1.55.73 1.82.86.27.13.44.2.5.31.07.13.07.7-.17 1.38z"/></svg>
+  </a>
+</div>
+
+<script>
+/* ===================================================================
+   CONFIGURAÇÃO — edite apenas este objeto
+   =================================================================== */
+const CONFIG = {
+  nome:"Everton Ferreira",
+  nomeFormal:"Dr. Everton Ferreira",
+  titulo:"Nutricionista",
+  crn:"44304",
+
+  whatsapp:"5581991291000",
+  telefoneDisplay:"(81) 99129-1000",
+  instagram:"https://instagram.com/evertonferreira_nutri",
+
+  fotoHero:"assets/hero-everton.jpg",
+  fotoFinal:"assets/cta-everton.jpg",
+  logoUrl:"assets/logo-everton.png",
+  creditoRodape:"",   // opcional: "Desenvolvido por ..."
+
+  msg:{
+    geral:"Olá, Dr. Everton! Gostaria de marcar uma consulta de nutrição com você. Pode me informar os horários disponíveis?",
+    final:"Olá, Dr. Everton! Quero começar minha transformação com um acompanhamento nutricional. Vamos agendar minha avaliação?",
+    beneficios:"Olá, Dr. Everton! Quero saber mais sobre o clube de benefícios com os parceiros. Como funciona?"
+  },
+
+  features:[
+    {t:"Nutrição sem terrorismo", d:"Abordagem equilibrada e sustentável, sem radicalismos ou restrições desnecessárias.", i:"leaf"},
+    {t:"Métodos baseados em ciência", d:"Estratégias nutricionais fundamentadas nas mais recentes pesquisas científicas.", i:"flask"},
+    {t:"Abordagens estratégicas", d:"Planos personalizados que se adaptam ao seu estilo de vida e objetivos específicos.", i:"target"},
+    {t:"Suporte 7 dias por semana", d:"Acompanhamento contínuo e suporte sempre que você precisar, todos os dias da semana.", i:"calendar"},
+    {t:"Atendimento ético e profissional", d:"Conduta profissional baseada em evidências e compromisso com seus resultados.", i:"shield"},
+    {t:"Resultados comprovados", d:"Histórico consistente de transformações reais e duradouras em nossos pacientes.", i:"chart"}
+  ],
+
+  /* --- Números de destaque ---
+     TODO: confirmar estes valores com o Everton antes de publicar —
+     são estimativas de exemplo, não dados reais coletados.        */
+  stats:[
+    {num:300, suffix:"+", label:"Pacientes atendidos"},
+    {num:7, suffix:"", label:"Anos de atuação"},
+    {num:98, suffix:"%", label:"Taxa de satisfação"},
+    {num:4.9, suffix:"★", label:"Avaliação média"}
+  ],
+
+  faq:[
+    {q:"Como funcionam as consultas online?", a:"As consultas online são feitas por videochamada, no mesmo horário combinado, com a mesma qualidade de atendimento das presenciais. Você recebe o plano alimentar e o acompanhamento pelo app normalmente."},
+    {q:"Posso trocar de plano depois de começar?", a:"Sim. Você pode migrar para um plano semestral ou anual a qualquer momento — é só falar com o Everton pelo WhatsApp para ajustar."},
+    {q:"O que acontece se eu precisar cancelar uma consulta?", a:"É só avisar com antecedência pelo WhatsApp para reagendar. Não há multa para reagendamento dentro do prazo combinado."},
+    {q:"O acompanhamento serve para quem tem restrições alimentares?", a:"Sim. O plano é sempre personalizado considerando alergias, intolerâncias, rotina e objetivos — sem cardápios genéricos."},
+    {q:"Como funciona o Grupo VIP no WhatsApp?", a:"É um canal direto para tirar dúvidas do dia a dia entre as consultas, receber dicas e ajustes rápidos no plano quando necessário."},
+    {q:"Preciso morar em Belo Jardim para ser atendido?", a:"Não. O atendimento presencial é em Belo Jardim - PE, mas o acompanhamento online atende pacientes de qualquer lugar do Brasil."}
+  ],
+
+  /* --- Preços atualizados conforme reunião --- */
+  planos:[
+    {
+      id:"mensal", nome:"MENSAL", preco:"300,00", sub:"1 consulta por mês", hot:false,
+      msg:"Olá, Dr. Everton! Tenho interesse no Plano Mensal de acompanhamento nutricional. Pode me passar mais detalhes?",
+      itens:["Consulta inicial completa","1 retorno grátis com 30 dias","Avaliação física","Plano alimentar personalizado","Grupo VIP no WhatsApp","App com acesso à dieta","Clube de benefícios com parceiros"]
+    },
+    {
+      id:"semestral", nome:"SEMESTRAL", preco:"141,66", sub:"6 consultas · 1 por mês", hot:true, tag:"MAIS ESCOLHIDO",
+      economia:"Economize 53% por mês",
+      msg:"Olá, Dr. Everton! Tenho interesse no Plano Semestral de acompanhamento nutricional. Pode me passar mais detalhes?",
+      itens:["Acompanhamento contínuo para manter a motivação e o foco","Consulta inicial completa","Avaliação física","Plano alimentar personalizado","Ajustes da dieta quando necessário","Grupo VIP no WhatsApp","Suporte via WhatsApp","Estratégias personalizadas para cada fase","App com acesso à dieta","Clube de benefícios com parceiros"]
+    },
+    {
+      id:"anual", nome:"ANUAL", preco:"133,34", sub:"12 consultas · 1 por mês", hot:false,
+      economia:"Economize 56% por mês",
+      msg:"Olá, Dr. Everton! Tenho interesse no Plano Anual de acompanhamento nutricional. Pode me passar mais detalhes?",
+      itens:["Acompanhamento contínuo para manter a motivação e o foco","Consulta inicial completa","Avaliação física","Plano alimentar personalizado","Ajustes da dieta quando necessário","Grupo VIP no WhatsApp","Suporte via WhatsApp","Estratégias personalizadas para cada fase","App com acesso à dieta","Clube de benefícios com parceiros"]
+    }
+  ],
+
+  tabs:[
+    {
+      id:"mensal", nome:"Plano Mensal", i:"clock", tag:"Mais indicado para nutrição clínica",
+      d:"Perfeito para quem busca acompanhamento regular e quer estabelecer uma base sólida de hábitos alimentares saudáveis.",
+      inclui:["Ideal para iniciantes na nutrição","Foco em educação alimentar","Estabelecimento de rotina","Acompanhamento de condições clínicas","Flexibilidade para testar a metodologia"],
+      para:"Pessoas com necessidades clínicas específicas, iniciantes em acompanhamento nutricional, ou quem quer experimentar o método."
+    },
+    {
+      id:"semestral", nome:"Plano Semestral", i:"target", tag:"Mais indicado para nutrição esportiva",
+      d:"O plano mais escolhido. Oferece tempo suficiente para mudanças consistentes e um acompanhamento mais próximo.",
+      inclui:["Acompanhamento quinzenal","Ajustes frequentes no plano","Foco em performance esportiva","Periodização nutricional","Melhor custo-benefício"],
+      para:"Atletas, praticantes de atividade física regular e pessoas que buscam transformação corporal significativa."
+    },
+    {
+      id:"anual", nome:"Plano Anual", i:"people", tag:"Resultados que vão além da balança",
+      d:"Para quem está comprometido com uma transformação completa e duradoura. Máximo acompanhamento e consistência ao longo do ano.",
+      inclui:["Suporte prioritário","Relatórios mensais detalhados","Melhor valor por consulta","Acompanhamento de longo prazo","Foco em manutenção dos resultados"],
+      para:"Pessoas comprometidas com mudança de estilo de vida e casos complexos que requerem acompanhamento prolongado."
+    }
+  ],
+
+  /* --- Clube de benefícios (parceiros) ---
+     logo: caminho opcional para o arquivo de imagem do parceiro.
+     Se ficar vazio, o card usa um monograma com as iniciais.       */
+  categorias:["Todos","Treino","Farmácias","Suplementos & Alimentação","Saúde & Bem-estar"],
+  parceiros:[
+    { nome:"Heliaquim Silva", cat:"Treino", tipo:"Personal Trainer", off:"10% OFF", logo:"assets/partners/heliaquim-circle.png", dark:true,
+      d:"Desconto na avaliação física com o personal Heliaquim." },
+    { nome:"Alison Lima", cat:"Treino", tipo:"Saúde & Performance", off:"10% OFF", logo:"assets/partners/alison-lima-circle.png",
+      d:"Desconto na avaliação física com o personal Alison Lima." },
+    { nome:"Hian Ludovico", cat:"Treino", tipo:"Personal Trainer", off:"10% OFF", logo:"assets/partners/hian-ludovico-circle.png",
+      d:"Desconto na avaliação física com o personal Hian Ludovico." },
+    { nome:"Top Farma", cat:"Farmácias", tipo:"Farmácia", off:"até 10% OFF", logo:"assets/partners/top-farma-circle.png",
+      d:"Desconto nas suas compras na Farmácia Top Farma." },
+    { nome:"Martins Farma", cat:"Farmácias", tipo:"Farmácia", off:"até 10% OFF", logo:"assets/partners/martins-farma-circle.png",
+      d:"Desconto nas suas compras na Martins Farma." },
+    { nome:"Roval", cat:"Farmácias", tipo:"Farmácia de Manipulação", off:"15% OFF", logo:"assets/partners/roval-circle.png",
+      d:"Desconto nas fórmulas manipuladas da Roval." },
+    { nome:"A Formúla", cat:"Farmácias", tipo:"Farmácia de Manipulação · Belo Jardim", off:"Descontos especiais", logo:"assets/partners/a-formula-circle.png",
+      d:"Condições especiais na farmácia de manipulação A Formúla." },
+    { nome:"Skull Boddy", cat:"Suplementos & Alimentação", tipo:"Suplementação", off:"até 12% OFF", logo:"assets/partners/skull-boddy-circle.png",
+      d:"Desconto exclusivo na sua suplementação." },
+    { nome:"Nahh Marmita Fit", cat:"Suplementos & Alimentação", tipo:"Marmitas saudáveis", off:"15% OFF", logo:"",
+      d:"Desconto nas marmitas fit — sem desculpa para não seguir a dieta." },
+    { nome:"Maga Vitalis", cat:"Suplementos & Alimentação", tipo:"Produtos naturais", off:"até 10% OFF", logo:"assets/partners/maga-vitalis-circle.png",
+      d:"Desconto na loja de produtos naturais Maga Vitalis." },
+    { nome:"DiagClin", cat:"Saúde & Bem-estar", tipo:"Exames laboratoriais", off:"Descontos exclusivos", logo:"assets/partners/diagclin-circle.png",
+      d:"Condições especiais nos seus exames laboratoriais." },
+    { nome:"Anna Karina", cat:"Saúde & Bem-estar", tipo:"Spa & Aromaterapia", off:"Desconto exclusivo", logo:"",
+      d:"Desconto em massoterapia, recuperação e relaxamento." },
+    { nome:"Zsports", cat:"Saúde & Bem-estar", tipo:"Roupas esportivas", off:"Descontos exclusivos", logo:"assets/partners/zsports-circle.png",
+      d:"Desconto na compra das suas peças de roupa esportiva." }
+  ],
+
+  depoimentos:[
+    {n:"Maria Silva", foto:"https://i.pravatar.cc/150?img=5", t:"Há quase 3 anos eu não usava essa calça... Hoje ela entrou folgadinha e já vou precisar fazer mais um furo no cinto. Ainda tenho um longo caminho pela frente, mas já são significativas as conquistas! Obrigada pelo apoio e paciência!"},
+    {n:"Carlos Santos", foto:"https://i.pravatar.cc/150?img=12", t:"Minha dieta vai bem. Estou um pouco frustrado com a balança porque o peso não desceu, mas vi uma GRANDE diferença nas minhas roupas. Ontem entrei num short que fazia 4 anos que não me cabia!"},
+    {n:"Ana Paula", foto:"https://i.pravatar.cc/150?img=9", t:"Você é nota 10! E ao constatar os primeiros resultados, ratifico que você foi a melhor escolha, mesmo diante dos desafios que eu iria enfrentar e vencer. O meu coração é só gratidão!"},
+    {n:"Roberto Lima", foto:"https://i.pravatar.cc/150?img=33", t:"Minha experiência foi muito boa. Gostei muito porque você monta de acordo com a nossa alimentação do dia a dia, não faz sufoco. Estou seguindo aos poucos e vai dar certo!"},
+    {n:"Juliana Costa", foto:"https://i.pravatar.cc/150?img=47", t:"A consulta foi ótima! Seu trabalho é impecável e acho que não tem nada a melhorar. Estou fazendo conforme você falou, com as coisas que tenho em casa, até conseguir comprar tudo da dieta."},
+    {n:"Fernanda Oliveira", foto:"https://i.pravatar.cc/150?img=25", t:"Está tudo perfeito, não poderia ter escolhido outro profissional para me acompanhar nesse processo! Soube conversar e explicar tudo direitinho. Comecei a ver mudanças desde o primeiro mês."},
+    {n:"Pedro Martins", foto:"https://i.pravatar.cc/150?img=52", t:"Só tenho a agradecer pelas ótimas orientações! Já estou percebendo resultado nas minhas energias, menos cansaço. Além do emagrecimento, a creatina está mostrando para que veio!"},
+    {n:"Camila Rocha", foto:"https://i.pravatar.cc/150?img=44", t:"Eu amei a consulta! Você é um profissional nota 1000, extremamente atencioso e muito inteligente. Nos mostra que mesmo achando difícil nos reeducar, é possível sem sofrer."},
+    {n:"Rafael Cunha", foto:"https://i.pravatar.cc/150?img=15", t:"Conquistei o corpo que sempre quis sem abrir mão do que gosto de comer. Método inteligente e sustentável!"}
+  ]
+};
+
+/* ===================================================================
+   ÍCONES
+   =================================================================== */
+const ICON={
+  leaf:'<path d="M4 20C4 10 11 4 21 4c0 10-7 16-17 16Z"/><path d="M4 20c0-5 3-9 7-11"/>',
+  flask:'<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/><path d="M7.5 15h9"/>',
+  target:'<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".8" fill="currentColor"/>',
+  calendar:'<rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+  shield:'<path d="M12 3l7.5 3v6c0 5.2-3.3 8.7-7.5 9.3C7.8 20.7 4.5 17.2 4.5 12V6L12 3Z"/><path d="m9 12 2 2 4-4"/>',
+  chart:'<path d="M4 19h16"/><path d="M7 19V10M12 19V5M17 19v-6"/>',
+  clock:'<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',
+  people:'<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2c2.4.4 4.5 2.4 4.5 5.8"/>'
+};
+const svg=(n,cls)=>`<svg ${cls?`class="${cls}"`:""} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICON[n]||""}</svg>`;
+const check='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+const star='<svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7 .7-5.2 4.7 1.5 7L12 17.5 5.7 21l1.5-7L2 9.3l7-.7L12 2Z"/></svg>';
+const quote='<svg class="quote" viewBox="0 0 24 24"><path d="M9.5 6C6.5 7.2 4.5 10 4.5 13.4c0 2.7 1.7 4.6 4 4.6 2.1 0 3.6-1.6 3.6-3.6 0-2-1.4-3.5-3.3-3.5-.4 0-.8.1-1 .2.4-1.6 1.7-3 3.4-3.8L9.5 6Zm9 0c-3 1.2-5 4-5 7.4 0 2.7 1.7 4.6 4 4.6 2.1 0 3.6-1.6 3.6-3.6 0-2-1.4-3.5-3.3-3.5-.4 0-.8.1-1 .2.4-1.6 1.7-3 3.4-3.8L18.5 6Z"/></svg>';
+
+const wpp=m=>`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(m)}`;
+const ini=n=>n.replace(/[^\p{L}\s]/gu,"").split(/\s+/).filter(Boolean).map(w=>w[0]).slice(0,2).join("").toUpperCase();
+const $=s=>document.querySelector(s);
+
+/* ===================================================================
+   TEXTOS E LINKS
+   =================================================================== */
+$("#brandLogo").src=CONFIG.logoUrl;
+$("#brandLogo").alt=CONFIG.nome+" "+CONFIG.titulo;
+$("#topCrn").textContent=`${CONFIG.titulo} · CRN ${CONFIG.crn}`;
+$("#topTelText").textContent=CONFIG.telefoneDisplay;
+$("#topTel").href="tel:+"+CONFIG.whatsapp;
+
+$("#brandTitle").textContent="Nutri "+CONFIG.nome;
+$("#fLogo").src=CONFIG.logoUrl;
+$("#fLogo").alt=CONFIG.nome+" "+CONFIG.titulo;
+$("#fCred").textContent=`${CONFIG.nomeFormal} | ${CONFIG.titulo} - CRN ${CONFIG.crn}`;
+$("#fTel").textContent=CONFIG.telefoneDisplay;
+$("#fTel").href="tel:+"+CONFIG.whatsapp;
+$("#fCopy").textContent=`© ${new Date().getFullYear()} ${CONFIG.nomeFormal} | ${CONFIG.titulo}. Todos os direitos reservados.`;
+$("#fBy").textContent=CONFIG.creditoRodape;
+$("#fInsta").href=CONFIG.instagram;
+
+const linkGeral=wpp(CONFIG.msg.geral);
+["#ctaNav","#ctaMenu","#ctaHero","#fab","#fWpp"].forEach(s=>$(s).href=linkGeral);
+$("#fabIg").href=CONFIG.instagram;
+$("#ctaFinal").href=wpp(CONFIG.msg.final);
+$("#ctaBen").href=wpp(CONFIG.msg.beneficios);
+
+const photo=$("#heroPhoto");
+if(CONFIG.fotoHero) photo.innerHTML=`<img src="${CONFIG.fotoHero}" alt="Foto de ${CONFIG.nome}">`;
+else photo.querySelector(".mono").textContent=ini(CONFIG.nome);
+
+$("#finalPhoto").src=CONFIG.fotoFinal;
+$("#finalPhoto").alt="Foto de "+CONFIG.nome;
+
+/* ===================================================================
+   REVELAÇÃO AO ROLAR (definido antes do render, que já usa observeAll)
+   =================================================================== */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+},{ threshold:.12, rootMargin:"0px 0px -60px 0px" });
+function observeAll(){
+  document.querySelectorAll("[data-rise]:not(.in),[data-fade]:not(.in)").forEach(el=>io.observe(el));
+}
+
+/* ===================================================================
+   RENDER
+   =================================================================== */
+// Números (com contagem animada ao entrar na tela)
+const statsGrid=$("#statsGrid");
+statsGrid.innerHTML=CONFIG.stats.map((s,i)=>`
+  <div class="stat" data-rise style="--d:${i*90}ms">
+    <div class="num" data-count="${s.num}" data-suffix="${s.suffix}">0${s.suffix}</div>
+    <div class="label">${s.label}</div>
+  </div>`).join("");
+
+function animateCount(el){
+  const target=parseFloat(el.dataset.count);
+  const suffix=el.dataset.suffix||"";
+  const decimals=Number.isInteger(target)?0:1;
+  const dur=1400, start=performance.now();
+  function step(now){
+    const p=Math.min(1,(now-start)/dur);
+    const eased=1-Math.pow(1-p,3);
+    el.textContent=(target*eased).toFixed(decimals)+suffix;
+    if(p<1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const statsIO=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ animateCount(e.target); statsIO.unobserve(e.target); }
+  });
+},{ threshold:.5 });
+statsGrid.querySelectorAll(".num").forEach(el=>statsIO.observe(el));
+
+// Diferenciais
+$("#featGrid").innerHTML=CONFIG.features.map((f,i)=>`
+  <article class="feat" data-rise style="--d:${i*70}ms">
+    <div class="ico">${svg(f.i)}</div>
+    <h3>${f.t}</h3><p>${f.d}</p>
+  </article>`).join("");
+
+// Planos
+$("#plansGrid").innerHTML=CONFIG.planos.map((p,i)=>{
+  const [int,cent]=p.preco.split(",");
+  return `
+  <article class="plan${p.hot?" hot":""}" data-rise style="--d:${i*110}ms">
+    ${p.tag?`<span class="plan-tag">${p.tag}</span>`:""}
+    <h3>${p.nome}</h3>
+    <div class="price">R$ ${int}<span class="cents">,${cent}</span></div>
+    <p class="price-sub">${p.sub}</p>
+    ${p.economia?`<span class="save">${p.economia}</span>`:""}
+    <div class="divider"></div>
+    <ul>${p.itens.map(it=>`<li>${check}<span>${it}</span></li>`).join("")}</ul>
+    <a class="btn btn-primary" href="${wpp(p.msg)}" target="_blank" rel="noopener noreferrer">Escolher plano ${p.nome.toLowerCase()}</a>
+  </article>`;
+}).join("");
+
+// Abas
+const tabsEl=$("#tabs"), panelsEl=$("#panels"), glider=$("#glider");
+CONFIG.tabs.forEach((t,i)=>{
+  const b=document.createElement("button");
+  b.className="tab"; b.type="button"; b.textContent=t.nome;
+  b.setAttribute("role","tab"); b.setAttribute("aria-selected",i===0);
+  b.dataset.id=t.id;
+  b.addEventListener("click",()=>pickTab(t.id));
+  tabsEl.appendChild(b);
+
+  const p=document.createElement("div");
+  p.className="panel"+(i===0?" on":"");
+  p.id="p-"+t.id;
+  p.innerHTML=`
+    <div class="panel-top">
+      <div class="ico">${svg(t.i)}</div>
+      <div>
+        <h3>${t.nome}</h3>
+        <span class="panel-tag">✨ ${t.tag}</span>
+      </div>
+    </div>
+    <p class="panel-desc">${t.d}</p>
+    <div class="panel-cols">
+      <div><h4>O que inclui</h4><ul>${t.inclui.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+      <div><h4>Indicado para</h4><div class="panel-for">${t.para}</div></div>
+    </div>`;
+  panelsEl.appendChild(p);
+});
+function pickTab(id){
+  tabsEl.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.id===id));
+  panelsEl.querySelectorAll(".panel").forEach(p=>p.classList.toggle("on",p.id==="p-"+id));
+  moveGlider();
+}
+function moveGlider(){
+  const act=tabsEl.querySelector('.tab[aria-selected="true"]');
+  if(!act||getComputedStyle(glider).display==="none") return;
+  glider.style.width=act.offsetWidth+"px";
+  glider.style.transform=`translateX(${act.offsetLeft-6}px)`;
+}
+window.addEventListener("resize",moveGlider);
+window.addEventListener("load",moveGlider);
+setTimeout(moveGlider,120);
+
+// Benefícios
+const CAT_ICON={ "Treino":"target", "Farmácias":"flask", "Suplementos & Alimentação":"leaf", "Saúde & Bem-estar":"shield" };
+const benGrid=$("#benGrid"), benFilters=$("#benFilters");
+$("#benCount").textContent=CONFIG.parceiros.length;
+benFilters.innerHTML=CONFIG.categorias.map((c,i)=>
+  `<button class="chip${i===0?" on":""}" data-cat="${c}">${c}</button>`).join("");
+
+function renderBen(cat){
+  const list=cat==="Todos"?CONFIG.parceiros:CONFIG.parceiros.filter(p=>p.cat===cat);
+  benGrid.innerHTML=list.map((p,i)=>`
+    <article class="ben" data-rise style="--d:${Math.min(i,8)*55}ms">
+      <div class="ben-head">
+        <div class="ben-logo${p.dark?" dark":""}">${p.logo?`<span class="ben-logo-img"><img src="${p.logo}" alt="${p.nome}" loading="lazy"></span>`:ini(p.nome)}</div>
+        <div>
+          <div class="ben-name">${p.nome}</div>
+          <div class="ben-cat">${svg(CAT_ICON[p.cat]||"target")}${p.tipo}</div>
+        </div>
+      </div>
+      <span class="ben-off">${p.off}</span>
+      <p>${p.d}</p>
+    </article>`).join("");
+  observeAll();
+}
+renderBen("Todos");
+benFilters.addEventListener("click",e=>{
+  const c=e.target.closest(".chip"); if(!c) return;
+  benFilters.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x===c));
+  renderBen(c.dataset.cat);
+});
+
+// Depoimentos (wall com 3 colunas em loop infinito)
+function cardHTML(d){
+  return `
+  <article class="t-card">
+    ${quote}
+    <p>${d.t}</p>
+    <div class="t-foot">
+      <div class="t-av">${d.foto?`<img src="${d.foto}" alt="${d.n}" loading="lazy">`:ini(d.n)}</div>
+      <div>
+        <div class="t-name">${d.n}</div>
+        <div class="t-stars">${star.repeat(5)}</div>
+      </div>
+    </div>
+  </article>`;
+}
+const testiWall=$("#testiWall");
+const rowA=CONFIG.depoimentos;
+const rowB=[...CONFIG.depoimentos].reverse();
+testiWall.innerHTML=`
+  <div class="testi-row left" style="--dur:56s">${rowA.map(cardHTML).join("")}${rowA.map(cardHTML).join("")}</div>
+  <div class="testi-row right" style="--dur:48s">${rowB.map(cardHTML).join("")}${rowB.map(cardHTML).join("")}</div>`;
+
+// FAQ (acordeão)
+const faqList=$("#faqList");
+faqList.innerHTML=CONFIG.faq.map((f,i)=>`
+  <div class="faq-item" data-rise style="--d:${Math.min(i,5)*60}ms">
+    <button class="faq-q" type="button" aria-expanded="false">
+      <span>${f.q}</span>
+      <span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+    </button>
+    <div class="faq-a"><p>${f.a}</p></div>
+  </div>`).join("");
+
+faqList.querySelectorAll(".faq-item").forEach(item=>{
+  const q=item.querySelector(".faq-q"), a=item.querySelector(".faq-a");
+  q.addEventListener("click",()=>{
+    const isOpen=item.classList.contains("open");
+    faqList.querySelectorAll(".faq-item.open").forEach(o=>{
+      if(o!==item){ o.classList.remove("open"); o.querySelector(".faq-q").setAttribute("aria-expanded","false"); o.querySelector(".faq-a").style.maxHeight=null; }
+    });
+    item.classList.toggle("open", !isOpen);
+    q.setAttribute("aria-expanded", String(!isOpen));
+    a.style.maxHeight = !isOpen ? a.scrollHeight+"px" : null;
+  });
+});
+
+/* ===================================================================
+   INTERAÇÕES
+   =================================================================== */
+observeAll();
+
+// Tela de carregamento
+window.addEventListener("load", ()=>{
+  setTimeout(()=>{ $("#loader")?.classList.add("hide"); }, 350);
+});
+
+// Link ativo no menu
+const navAnchors=[...document.querySelectorAll('.nav-links a[data-scroll]')];
+function markActive(y){
+  let cur="";
+  navAnchors.forEach(a=>{
+    const s=document.getElementById(a.dataset.scroll);
+    if(s && s.offsetTop-140<=y) cur=a.dataset.scroll;
+  });
+  navAnchors.forEach(a=>a.classList.toggle("active",a.dataset.scroll===cur));
+}
+
+// Barra de progresso
+const bar=$("#progress");
+function onScroll(){
+  const y=window.scrollY;
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  bar.style.width=(h>0?(y/h)*100:0)+"%";
+  $("#hdr").classList.toggle("scrolled",y>10);
+  $("#scrollHint").classList.toggle("hidden",y>140);
+  markActive(y);
+}
+window.addEventListener("scroll",onScroll,{passive:true});
+onScroll();
+
+// Rolagem suave
+document.querySelectorAll("[data-scroll]").forEach(el=>{
+  el.addEventListener("click",ev=>{
+    ev.preventDefault();
+    closeMenu();
+    requestAnimationFrame(()=>{
+      document.getElementById(el.dataset.scroll)?.scrollIntoView({behavior:"smooth"});
+    });
+  });
+});
+$("#scrollHint").addEventListener("click",()=>{
+  document.getElementById("metodo").scrollIntoView({behavior:"smooth"});
+});
+
+// Menu mobile
+const burger=$("#burger"), mmenu=$("#mmenu");
+function closeMenu(){ mmenu.classList.remove("open"); burger.setAttribute("aria-expanded","false"); }
+burger.addEventListener("click",()=>{
+  const open=mmenu.classList.toggle("open");
+  burger.setAttribute("aria-expanded",open);
+});
+$("#ctaMenu").addEventListener("click",closeMenu);
+</script>
+
+</body>
+</html>
