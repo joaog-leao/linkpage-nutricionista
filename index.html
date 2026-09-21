@@ -341,7 +341,7 @@ header.scrolled{
 /* ===================================================================
    SEÇÕES
    =================================================================== */
-section{ padding:96px 0; scroll-margin-top:86px; position:relative; }
+section{ padding:96px 0; scroll-margin-top:86px; position:relative; overflow-x:hidden; }
 [data-rise]{ opacity:0; transform:translateY(22px); transition:opacity .7s var(--ease-out), transform .7s var(--ease-out); }
 [data-rise].visible{ opacity:1; transform:none; }
 .head{ max-width:660px; margin:0 auto 54px; text-align:center; }
@@ -985,6 +985,86 @@ footer::before{
   .faq-q{ padding:15px 16px; font-size:14px; }
   .faq-a p{ padding:0 16px 15px; font-size:13.5px; }
   .final-photo img{ max-width:170px; }
+}
+/* --- Redução geral de escala no mobile (mais compacto e centralizado) --- */
+@media (max-width:620px){
+  .brand-logo{ height:44px; }
+  header.scrolled .brand-logo{ height:38px; }
+
+  .hero{ padding-top:32px; }
+  .hero-photo{ width:min(46%,150px); }
+  .halo{ width:min(58%,185px); }
+  .hero-pill{ font-size:10.5px; padding:6px 11px; gap:6px; }
+  .hero h1{ font-size:clamp(21px,6.8vw,27px); }
+  .hero .lead{ font-size:13px; margin-top:10px; }
+  .hero-actions{ margin-top:14px; gap:8px; }
+  .hero-actions .btn{ padding:11px 14px; font-size:12.5px; }
+  .trust{ margin-top:14px; gap:6px 12px; }
+  .trust li{ font-size:11px; }
+  .trust svg{ width:14px; height:14px; }
+  .scroll-hint{ margin-top:10px; font-size:9px; }
+
+  section{ padding:34px 0; }
+  #numeros{ padding:24px 0; }
+  .stat .num{ font-size:clamp(19px,5.6vw,24px); }
+  .stat .label{ font-size:10.5px; margin-top:4px; }
+
+  .head{ margin-bottom:20px; }
+  .head .kicker{ font-size:10.5px; padding:5px 11px; }
+  .head h2{ font-size:clamp(18px,5.6vw,22px); }
+  .head p{ font-size:12.5px; }
+
+  .feat{ padding:13px 12px; }
+  .feat .ico{ width:36px; height:36px; margin-bottom:8px; border-radius:11px; }
+  .feat .ico svg{ width:18px; height:18px; }
+  .feat h3{ font-size:13.5px; margin-bottom:4px; }
+  .feat p{ font-size:11.5px; }
+
+  .plan{ padding:16px 13px 14px; }
+  .plan h3{ font-size:12.5px; }
+  .plan .price{ font-size:23px; }
+  .plan .price-sub{ font-size:11.5px; }
+  .plan li{ font-size:12.5px; }
+  .plan .btn{ padding:12px; font-size:13px; }
+
+  .tabs{ padding:5px; }
+  .tab{ padding:10px 6px; font-size:12.5px; }
+  .panel{ padding:16px 14px; }
+  .panel-top h3{ font-size:16px; }
+  .panel-desc{ font-size:13px; }
+  .panel-cols li{ font-size:12.5px; }
+
+  .ben-steps{ gap:12px; }
+  .ben-step-num{ width:36px; height:36px; font-size:13px; }
+  .ben-step h4{ font-size:12.5px; }
+  .ben-step p{ font-size:11px; }
+  .ben-count{ font-size:10.5px; padding:5px 10px; }
+  .chip{ padding:9px 13px; font-size:11.5px; }
+  .ben{ padding:11px; gap:7px; }
+  .ben-logo{ width:38px; height:38px; }
+  .ben-name{ font-size:12px; }
+  .ben-cat{ font-size:10px; }
+  .ben-off{ font-size:10.5px; padding:5px 10px; }
+  .ben p{ font-size:11.5px; }
+  .ben-cta h3{ font-size:16px; }
+  .ben-cta p{ font-size:12px; }
+
+  .t-card{ width:180px; padding:12px; }
+  .t-card p{ font-size:11.5px; }
+  .t-name{ font-size:12.5px; }
+  .t-av{ width:28px; height:28px; }
+
+  .faq-q{ font-size:12.5px; padding:13px 14px; }
+  .faq-a p{ font-size:12px; padding:0 14px 13px; }
+
+  .final-copy h2{ font-size:clamp(19px,5.8vw,24px); }
+  .final-copy p{ font-size:13px; }
+  .final-photo img{ max-width:130px; }
+  .final-trust li{ font-size:11.5px; }
+
+  .f-logo{ height:44px; }
+  .f-tagline,.f-col a,.f-contact-row{ font-size:13px; }
+  .f-copy,.f-by{ font-size:11px; }
 }
 </style>
 </head>
