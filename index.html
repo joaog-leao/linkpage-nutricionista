@@ -342,7 +342,7 @@ header.scrolled{
    SEÇÕES
    =================================================================== */
 section{ padding:96px 0; scroll-margin-top:86px; position:relative; overflow-x:hidden; }
-[data-rise]{ opacity:0; transform:translateY(22px); transition:opacity .7s var(--ease-out), transform .7s var(--ease-out); }
+[data-rise]{ opacity:0; transform:translateY(10px); transition:opacity .3s var(--ease-out), transform .3s var(--ease-out); }
 [data-rise].visible{ opacity:1; transform:none; }
 .head{ max-width:660px; margin:0 auto 54px; text-align:center; }
 .head .kicker{
@@ -731,8 +731,8 @@ footer::before{
    ANIMAÇÕES DE ENTRADA
    =================================================================== */
 [data-rise]{
-  opacity:0; transform:translateY(26px);
-  transition:opacity .75s var(--ease-out), transform .75s var(--ease-out);
+  opacity:0; transform:translateY(10px);
+  transition:opacity .3s var(--ease-out), transform .3s var(--ease-out);
   transition-delay:var(--d,0ms);
 }
 [data-rise].in{ opacity:1; transform:none; }
@@ -1545,7 +1545,7 @@ const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
   });
-},{ threshold:.12, rootMargin:"0px 0px -60px 0px" });
+},{ threshold:.1, rootMargin:"0px 0px -10px 0px" });
 function observeAll(){
   document.querySelectorAll("[data-rise]:not(.in),[data-fade]:not(.in)").forEach(el=>io.observe(el));
 }
