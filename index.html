@@ -102,19 +102,12 @@ section::before, section::after{
   filter:blur(2px); animation:orbFloat 11s ease-in-out infinite alternate;
 }
 #metodo::before{ width:20rem; height:20rem; top:-4rem; right:-9rem; background:rgba(34,197,94,.09); }
-#metodo::after{ width:13rem; height:13rem; bottom:-3rem; left:-6rem; background:rgba(110,235,168,.12); animation-delay:-4s; }
 #planos::before{ width:22rem; height:22rem; top:10%; left:-10rem; background:rgba(110,235,168,.11); animation-delay:-2s; }
-#planos::after{ width:15rem; height:15rem; bottom:-4rem; right:-6rem; background:rgba(34,197,94,.08); animation-delay:-6s; }
 #detalhes::before{ width:19rem; height:19rem; top:-3rem; right:-8rem; background:rgba(34,197,94,.10); animation-delay:-1s; }
-#detalhes::after{ width:12rem; height:12rem; bottom:8%; left:-6rem; background:rgba(110,235,168,.10); animation-delay:-5s; }
 #beneficios::before{ width:24rem; height:24rem; top:-6rem; left:-10rem; background:rgba(34,197,94,.08); animation-delay:-3s; }
-#beneficios::after{ width:14rem; height:14rem; bottom:-3rem; right:-7rem; background:rgba(110,235,168,.11); animation-delay:-7s; }
 #depoimentos::before{ width:20rem; height:20rem; top:-4rem; right:-9rem; background:rgba(110,235,168,.10); animation-delay:-2.5s; }
-#depoimentos::after{ width:13rem; height:13rem; bottom:-2rem; left:-6rem; background:rgba(34,197,94,.08); animation-delay:-6.5s; }
 #faq::before{ width:18rem; height:18rem; top:-4rem; left:-8rem; background:rgba(110,235,168,.10); animation-delay:-3.5s; }
-#faq::after{ width:12rem; height:12rem; bottom:-2rem; right:-5rem; background:rgba(34,197,94,.08); animation-delay:-7.5s; }
 .final::before{ width:20rem; height:20rem; top:-5rem; left:-8rem; background:rgba(34,197,94,.09); animation-delay:-1.5s; }
-.final::after{ width:14rem; height:14rem; bottom:-4rem; right:-6rem; background:rgba(110,235,168,.11); animation-delay:-4.5s; }
 
 /* Tela de carregamento -------------------------------------------- */
 .loader{
@@ -793,6 +786,7 @@ footer::before{
   .hero-photo{ width:min(72%,260px); }
   .halo{ width:min(86%,310px); }
   .float-chip{ display:none; }
+  section::before, section::after, .hero::before, .hero::after{ display:none; }
   .hero .lead{ margin-inline:auto; }
   .hero-actions,.trust{ justify-content:center; }
   .panel-cols{ grid-template-columns:1fr; }
@@ -909,7 +903,7 @@ footer::before{
 .fab{
   overflow:visible;
   box-shadow:0 12px 28px -8px rgba(16,51,26,.35);
-  animation:fabIn .6s var(--ease-out) forwards, fabFloat 3.2s ease-in-out 1s infinite;
+  animation:fabIn .6s var(--ease-out) forwards;
 }
 .fab::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(255,255,255,.5);opacity:0;transition:opacity .3s,transform .3s;}
 .fab:hover::after{opacity:1;transform:scale(1.12);}
@@ -1050,6 +1044,8 @@ footer::before{
   .ben-cta p{ font-size:12px; }
 
   .t-card{ width:180px; padding:12px; }
+  .testi-row:nth-child(2){ display:none; }
+  .testi-row.left{ animation-duration:70s; }
   .t-card p{ font-size:11.5px; }
   .t-name{ font-size:12.5px; }
   .t-av{ width:28px; height:28px; }
@@ -1460,7 +1456,7 @@ const CONFIG = {
     { nome:"Skull Boddy", cat:"Suplementos & Alimentação", tipo:"Suplementação", off:"até 12% OFF", logo:"assets/partners/skull-boddy-circle.png",
       d:"Desconto exclusivo na sua suplementação." },
     { nome:"Nahh Marmita Fit", cat:"Suplementos & Alimentação", tipo:"Marmitas saudáveis", off:"15% OFF", logo:"assets/partners/nahh-marmita-circle.png",
-      d:"Desconto nas marmitas fit — sem desculpa para não seguir a dieta." },
+      d:"Desconto nas marmitas fit" },
     { nome:"Maga Vitalis", cat:"Suplementos & Alimentação", tipo:"Produtos naturais", off:"até 10% OFF", logo:"assets/partners/maga-vitalis-circle.png",
       d:"Desconto na loja de produtos naturais Maga Vitalis." },
     { nome:"DiagClin", cat:"Saúde & Bem-estar", tipo:"Exames laboratoriais", off:"Descontos exclusivos", logo:"assets/partners/diagclin-circle.png",
@@ -1733,27 +1729,41 @@ window.addEventListener("load", ()=>{
   setTimeout(()=>{ $("#loader")?.classList.add("hide"); }, 350);
 });
 
-// Link ativo no menu
+// Link ativo no menu (offsets calculados uma vez, não a cada scroll)
 const navAnchors=[...document.querySelectorAll('.nav-links a[data-scroll]')];
+let navOffsets=[];
+function recalcOffsets(){
+  navOffsets=navAnchors.map(a=>{
+    const s=document.getElementById(a.dataset.scroll);
+    return { a, top: s ? s.offsetTop-140 : Infinity };
+  });
+}
 function markActive(y){
   let cur="";
-  navAnchors.forEach(a=>{
-    const s=document.getElementById(a.dataset.scroll);
-    if(s && s.offsetTop-140<=y) cur=a.dataset.scroll;
-  });
+  navOffsets.forEach(({a,top})=>{ if(top<=y) cur=a.dataset.scroll; });
   navAnchors.forEach(a=>a.classList.toggle("active",a.dataset.scroll===cur));
 }
 
-// Barra de progresso
 const bar=$("#progress");
+let scrollHeightCache=0;
+function recalcScrollHeight(){ scrollHeightCache=document.documentElement.scrollHeight-window.innerHeight; }
+
+let ticking=false;
 function onScroll(){
-  const y=window.scrollY;
-  const h=document.documentElement.scrollHeight-window.innerHeight;
-  bar.style.width=(h>0?(y/h)*100:0)+"%";
-  $("#hdr").classList.toggle("scrolled",y>10);
-  $("#scrollHint").classList.toggle("hidden",y>140);
-  markActive(y);
+  if(ticking) return;
+  ticking=true;
+  requestAnimationFrame(()=>{
+    const y=window.scrollY;
+    bar.style.width=(scrollHeightCache>0?(y/scrollHeightCache)*100:0)+"%";
+    $("#hdr").classList.toggle("scrolled",y>10);
+    $("#scrollHint").classList.toggle("hidden",y>140);
+    markActive(y);
+    ticking=false;
+  });
 }
+recalcOffsets();
+recalcScrollHeight();
+window.addEventListener("resize",()=>{ recalcOffsets(); recalcScrollHeight(); },{passive:true});
 window.addEventListener("scroll",onScroll,{passive:true});
 onScroll();
 
